@@ -1,3 +1,4 @@
+import 'package:app_trac_nghiem/type_questions.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter_application_1/firstscreen.dart';
 //import 'package:flutter_application_1/login.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: TypeQuestions(),
     );
   }
 }
