@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_signin_button/flutter_signin_button.dart';
-//import 'package:flutter_signin_button/button_view.dart';
 
 class TypeQuestions extends StatefulWidget {
   const TypeQuestions({super.key});
@@ -13,9 +11,9 @@ class _TypeQuestionsState extends State<TypeQuestions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 188, 255, 240),
+      backgroundColor: const Color.fromARGB(255, 188, 255, 240),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 188, 255, 240),
+        backgroundColor: const Color.fromARGB(255, 188, 255, 240),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.search),
@@ -29,8 +27,8 @@ class _TypeQuestionsState extends State<TypeQuestions> {
       body: Center(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Text(
                 'Thể loại',
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
@@ -42,24 +40,22 @@ class _TypeQuestionsState extends State<TypeQuestions> {
                   itemCount: 10,
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
-                      onTap: () {
-                        print('nhan');
-                      },
+                      onTap: () {},
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(60, 10, 60, 10),
                         child: SizedBox(
                           width: 200,
                           height: 100,
                           child: Card(
-                            color: Color.fromARGB(255, 102, 235, 195),
-                            shape: RoundedRectangleBorder(
+                            color: const Color.fromARGB(255, 102, 235, 195),
+                            shape: const RoundedRectangleBorder(
                               borderRadius:
-                                  const BorderRadius.all(Radius.circular(12)),
+                                  BorderRadius.all(Radius.circular(12)),
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
+                              children: const <Widget>[
                                 ListTile(
                                   leading: CircleAvatar(
                                       radius: 40,
