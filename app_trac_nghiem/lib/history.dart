@@ -29,6 +29,7 @@ class _HistoryState extends State<History> {
       body: SingleChildScrollView(
         child: Center(
           child: ListView.builder(
+              physics: const ScrollPhysics(),
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
               itemCount: 20,
@@ -38,15 +39,18 @@ class _HistoryState extends State<History> {
                   child: SizedBox(
                     height: 100,
                     child: Card(
-                      color: const Color.fromARGB(255, 242, 255, 183),
+                      color: Colors.grey[350],
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           ListTile(
-                            leading: const Text(
-                              '1',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            leading: const Padding(
+                              padding: EdgeInsets.only(left: 10),
+                              child: Text(
+                                '1',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
                             ),
                             title: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -55,18 +59,23 @@ class _HistoryState extends State<History> {
                                   text: const TextSpan(
                                     children: [
                                       TextSpan(
-                                          text: "100 ",
-                                          style: TextStyle(fontSize: 20)),
+                                          text: "100",
+                                          style: TextStyle(
+                                              fontSize: 20, color: Colors.red)),
                                       WidgetSpan(
-                                        child: Icon(Icons.star, size: 25),
+                                        child: Icon(
+                                          Icons.star,
+                                          size: 25,
+                                          color: Colors.yellowAccent,
+                                        ),
                                       ),
                                     ],
                                   ),
-                                ),                            
+                                ),
                                 const Text('Thể Thao'),
                               ],
                             ),
-                            trailing: const Text('10/12/2077'),
+                            trailing: const Text('10/12/2077 - 22:22'),
                           ),
                         ],
                       ),
