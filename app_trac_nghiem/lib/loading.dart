@@ -15,7 +15,10 @@ class _LoadingState extends State<Loading> {
       body: Center(
         child: Column(
           children: [
-            Lottie.asset('assets/images/monkey_load.json'),
+            Padding(
+              padding: const EdgeInsets.only(top: 200),
+              child: Lottie.asset('assets/images/monkey_load.json'),
+            ),
             const Text(
               'Loading...',
               style: TextStyle(

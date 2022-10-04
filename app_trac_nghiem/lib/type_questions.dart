@@ -14,68 +14,65 @@ class _TypeQuestionsState extends State<TypeQuestions> {
       backgroundColor: const Color.fromARGB(255, 188, 255, 240),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 188, 255, 240),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.search),
-            tooltip: 'Tìm kiếm',
-            color: Colors.black,
-            iconSize: 40,
-            onPressed: () {},
-          ),
-        ],
+        title: const Center(
+          child: Text('Thể Loại',
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black)),
+        ),
+        // actions: <Widget>[
+        //   IconButton(
+        //     icon: const Icon(Icons.play_arrow_outlined),
+        //     tooltip: 'Tìm kiếm',
+        //     color: Colors.black,
+        //     iconSize: 40,
+        //     onPressed: () {},
+        //   ),
+        // ],
       ),
       body: Center(
-        child: Column(
+        child: ListView(
           children: [
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'Thể loại',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-            ),
-            SizedBox(
-              height: 500,
+            SingleChildScrollView(
               child: ListView.builder(
+                  physics: const ScrollPhysics(),
+                  shrinkWrap: true,
                   itemCount: 10,
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
                       onTap: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(60, 10, 60, 10),
+                      child: const Padding(
+                        padding: EdgeInsets.fromLTRB(60, 10, 60, 10),
                         child: SizedBox(
                           width: 200,
                           height: 100,
                           child: Card(
-                            color: const Color.fromARGB(255, 102, 235, 195),
-                            shape: const RoundedRectangleBorder(
+                            color: Color.fromARGB(255, 102, 235, 195),
+                            shape: RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(12)),
                             ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.min,
-                              children: const <Widget>[
-                                ListTile(
-                                  leading: CircleAvatar(
-                                      radius: 40,
-                                      backgroundImage: AssetImage(
-                                          'assets/images/hinhgaidep.jpg')),
-                                  title: Text(
-                                    'thể thao',
-                                    style: TextStyle(
-                                        fontSize: 25,
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                            child: Center(
+                              child: ListTile(
+                                leading: CircleAvatar(
+                                    radius: 40,
+                                    backgroundImage: AssetImage(
+                                        'assets/images/hinhgaidep.jpg')),
+                                title: Text(
+                                  'Thể Thao',
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     );
                   }),
-            )
+            ),
           ],
         ),
       ),
