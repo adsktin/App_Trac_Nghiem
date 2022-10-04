@@ -1,12 +1,14 @@
 //import 'package:app_trac_nghiem/history.dart';
 //import 'package:app_trac_nghiem/type_questions.dart';
+import 'package:app_trac_nghiem/history.dart';
+import 'package:app_trac_nghiem/type_questions.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter_application_1/firstscreen.dart';
-//import 'package:flutter_application_1/login.dart';
-//import 'package:flutter_application_1/register.dart';
+import 'firstscreen.dart';
+import 'login.dart';
+import 'register.dart';
 import 'home.dart';
-//import 'loading.dart';
-//import 'firstscreen.dart';
+import 'loading.dart';
+import 'firstscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: TypeQuestions(),
     );
   }
 }

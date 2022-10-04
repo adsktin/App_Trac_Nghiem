@@ -209,7 +209,7 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Padding(
-                padding: EdgeInsets.fromLTRB(70, 0, 40, 0),
+                padding: EdgeInsets.fromLTRB(80, 0, 40, 0),
                 child: Text(
                   'Hạng 1',
                   style: TextStyle(
@@ -225,6 +225,15 @@ class _HomeState extends State<Home> {
                       fontWeight: FontWeight.bold)),
               Icon(Icons.star, color: Colors.yellow[800]),
             ],
+          ),
+        ),
+        const Padding(
+          padding: EdgeInsets.fromLTRB(70, 0, 40, 0),
+          child: Text(
+            textAlign: TextAlign.center,
+            'Dương Nghĩa Hiệp',
+            style: TextStyle(
+                fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
           ),
         ),
         SingleChildScrollView(
@@ -244,11 +253,14 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           ListTile(
-                            leading: const Text(
-                              '1',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            leading: Padding(
+                              padding: const EdgeInsets.only(left: 15),
+                              child: const Text(
+                                '1',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
                             ),
                             title: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
