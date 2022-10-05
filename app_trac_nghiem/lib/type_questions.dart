@@ -41,7 +41,9 @@ class _TypeQuestionsState extends State<TypeQuestions> {
                   itemCount: 10,
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        showAlertDialog(context);
+                      },
                       child: const Padding(
                         padding: EdgeInsets.fromLTRB(60, 10, 60, 10),
                         child: SizedBox(
@@ -58,7 +60,7 @@ class _TypeQuestionsState extends State<TypeQuestions> {
                                 leading: CircleAvatar(
                                     radius: 40,
                                     backgroundImage: AssetImage(
-                                        'assets/images/hinhgaidep.jpg')),
+                                        'assets/images/monkeylogo.png')),
                                 title: Text(
                                   'Thể Thao',
                                   style: TextStyle(
@@ -78,4 +80,53 @@ class _TypeQuestionsState extends State<TypeQuestions> {
       ),
     );
   }
+}
+
+showAlertDialog(BuildContext context) {
+  // set up the buttons
+  Widget cancelButton = TextButton(
+    child: const Text(
+      'Hủy',
+      style: TextStyle(color: Colors.red),
+    ),
+    onPressed: () {
+      Navigator.of(context, rootNavigator: true).pop();
+    },
+  );
+  Widget continueButton = TextButton(
+    child: const Text(
+      "Chơi",
+      style: TextStyle(color: Colors.green),
+    ),
+    onPressed: () {
+      //Navigator.push(
+      //context, MaterialPageRoute(builder: (context) => Page1()));
+      Navigator.of(context, rootNavigator: true).pushNamed('/firstscreen');
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    //backgroundColor: Colors.greenAccent,
+
+    title: const Text(
+      "Thông Báo",
+      textAlign: TextAlign.center,
+      style: TextStyle(color: Colors.red),
+    ),
+    content: const Text("Bạn có muốn vào trận đấu?"),
+    actions: [
+      
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
