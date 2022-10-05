@@ -9,6 +9,7 @@ import 'register.dart';
 import 'home.dart';
 import 'loading.dart';
 import 'firstscreen.dart';
+import 'play.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const Login(),
+        home: const Play(),
         routes: {
           '/loading': (context) => const Loading(),
           '/firstscreen': (context) => const Firstscreen(),
