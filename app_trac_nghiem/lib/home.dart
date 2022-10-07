@@ -1,4 +1,6 @@
+import 'package:app_trac_nghiem/type_questions.dart';
 import 'package:flutter/material.dart';
+import 'play.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -163,9 +165,7 @@ class _HomeState extends State<Home> {
     ),
     //
 
-    const Text(
-      'Index 3: play',
-    ),
+    const TypeQuestions(),
     //  rank
     ListView(
       children: [
@@ -184,17 +184,19 @@ class _HomeState extends State<Home> {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            TextButton(
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.amber,
-                shape: const CircleBorder(),
+            Container(
+              width: 50,
+              height: 50,
+              decoration: const BoxDecoration(
+                  color: Colors.amber, shape: BoxShape.circle),
+              child: IconButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.amber,
+                  shape: const CircleBorder(),
+                ),
+                icon: const Icon(Icons.history_outlined, size: 30),
+                onPressed: () {},
               ),
-              child: const Icon(
-                Icons.history_outlined,
-                color: Colors.black,
-                size: 35,
-              ),
-              onPressed: () {},
             ),
           ],
         ),
@@ -209,7 +211,7 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Padding(
-                padding: EdgeInsets.fromLTRB(80, 0, 40, 0),
+                padding: EdgeInsets.fromLTRB(80, 0, 40, 20),
                 child: Text(
                   'Hạng 1',
                   style: TextStyle(
@@ -228,7 +230,7 @@ class _HomeState extends State<Home> {
           ),
         ),
         const Padding(
-          padding: EdgeInsets.fromLTRB(70, 0, 40, 0),
+          padding: EdgeInsets.fromLTRB(70, 0, 40, 20),
           child: Text(
             textAlign: TextAlign.center,
             'Dương Nghĩa Hiệp',
@@ -253,9 +255,9 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           ListTile(
-                            leading: Padding(
-                              padding: const EdgeInsets.only(left: 15),
-                              child: const Text(
+                            leading: const Padding(
+                              padding: EdgeInsets.only(left: 15),
+                              child: Text(
                                 '1',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -264,12 +266,12 @@ class _HomeState extends State<Home> {
                             ),
                             title: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                const CircleAvatar(
+                              children: const [
+                                CircleAvatar(
                                     radius: 30,
                                     backgroundImage: AssetImage(
                                         'assets/images/hinhgaidep.jpg')),
-                                const Text('Dương Nghĩa Hiệp',
+                                Text('Dương Nghĩa Hiệp',
                                     style: TextStyle(
                                         fontSize: 18, color: Colors.black)),
                               ],
@@ -298,9 +300,34 @@ class _HomeState extends State<Home> {
         ),
       ],
     ),
-    //
-    const Text(
-      'Index 5: Settings',
+    // setting
+    Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: Stack(
+            children: [
+              Container(
+                width: 350,
+                height: 400,
+                color: Colors.green,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Cài Đặt'),
+                      CircleAvatar(
+                        radius: 40,
+                        backgroundImage:
+                            AssetImage('assets/images/hinhgaidep.jpg'),
+                      ),
+                      Text('Cài Đặt'),
+                      Text('Cài Đặt'),
+                    ]),
+              ),
+            ],
+          ),
+        ),
+      ],
     ),
   ];
   void _onItemTapped(int index) {
@@ -314,6 +341,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
+        iconSize: 20,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Icon(Icons.home_filled, color: Colors.black),

@@ -12,15 +12,28 @@ class _PlayState extends State<Play> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const BackButton(color: Colors.black),
-        backgroundColor: Colors.white,
-      ),
+      // appBar: AppBar(
+      //   leading: const BackButton(color: Colors.black),
+      //   backgroundColor: Colors.white,
+      // ),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 30, top: 10),
-            child: CircleAvatar(radius: 30, child: Text('10s')),
+            padding: const EdgeInsets.only(bottom: 30, top: 40),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                IconButton(
+                    onPressed: () {
+                      showAlertDialog(context);
+                    },
+                    icon: const Icon(Icons.arrow_back)),
+                Padding(
+                  padding: const EdgeInsets.only(left: 130),
+                  child: const CircleAvatar(radius: 30, child: Text('10s')),
+                ),
+              ],
+            ),
           ),
           Stack(
             clipBehavior: Clip.none,
@@ -164,4 +177,53 @@ class _PlayState extends State<Play> {
       ),
     );
   }
+}
+
+showAlertDialog(BuildContext context) {
+  // set up the buttons
+  Widget cancelButton = TextButton(
+    child: const Text(
+      'Thoát Ra',
+      style: TextStyle(color: Colors.red),
+    ),
+    onPressed: () {
+      // Navigator.of(context, rootNavigator: true).pop();
+      Navigator.of(context, rootNavigator: true).pushNamed('/home');
+    },
+  );
+  Widget continueButton = TextButton(
+    child: const Text(
+      "Chơi Tiếp",
+      style: TextStyle(color: Colors.green),
+    ),
+    onPressed: () {
+      //Navigator.push(
+      //context, MaterialPageRoute(builder: (context) => Page1()));
+      Navigator.of(context, rootNavigator: true).pop();
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    //backgroundColor: Colors.greenAccent,
+
+    title: const Text(
+      "Thông Báo",
+      textAlign: TextAlign.center,
+      style: TextStyle(color: Colors.red),
+    ),
+    content: const Text("Bạn muốn thoát thử thách?"),
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
