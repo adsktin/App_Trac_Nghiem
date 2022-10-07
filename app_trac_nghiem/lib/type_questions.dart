@@ -101,7 +101,7 @@ showAlertDialog(BuildContext context) {
     onPressed: () {
       //Navigator.push(
       //context, MaterialPageRoute(builder: (context) => Page1()));
-      Navigator.of(context, rootNavigator: true).pushNamed('/firstscreen');
+      Navigator.of(context, rootNavigator: true).pushNamed('/play');
     },
   );
 
@@ -116,7 +116,6 @@ showAlertDialog(BuildContext context) {
     ),
     content: const Text("Bạn có muốn vào trận đấu?"),
     actions: [
-      
       cancelButton,
       continueButton,
     ],
