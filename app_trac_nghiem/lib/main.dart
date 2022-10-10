@@ -1,6 +1,8 @@
 //import 'package:app_trac_nghiem/history.dart';
 //import 'package:app_trac_nghiem/type_questions.dart';
 import 'package:app_trac_nghiem/history.dart';
+import 'package:app_trac_nghiem/search_friend.dart';
+import 'package:app_trac_nghiem/test.dart';
 import 'package:app_trac_nghiem/type_questions.dart';
 import 'package:flutter/material.dart';
 import 'firstscreen.dart';
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const Home(),
+        home: const SearchFriend(),
         routes: {
           '/loading': (context) => const Loading(),
           '/firstscreen': (context) => const Firstscreen(),
