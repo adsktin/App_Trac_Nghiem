@@ -45,76 +45,294 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 4;
   static final List<Widget> _widgetOptions = <Widget>[
     // home
-    ListView(children: <Widget>[
-      Column(children: [
-        const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Text(
-            'Tin Tức Mới',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: const [
-              Text('Công Nghệ',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+    Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 110, 255, 120),
+              Color.fromARGB(255, 104, 235, 255),
             ],
+            begin: FractionalOffset(0.0, 0.0),
+            end: FractionalOffset(1.0, 0.0),
+            stops: [0.0, 1.0],
+            tileMode: TileMode.clamp),
+      ),
+      child: ListView(children: <Widget>[
+        Column(children: [
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              'Tin Tức Mới',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-          child: Row(
-            children: const [
-              Text('Ngày 2 tháng 10 năm 2022', style: TextStyle()),
-            ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: const [
+                Text('Công Nghệ',
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+            child: Row(
+              children: const [
+                Text('Ngày 2 tháng 10 năm 2022', style: TextStyle()),
+              ],
+            ),
+          ),
+        ]),
+        SingleChildScrollView(
+          child: Center(
+            child: ListView.builder(
+                physics: const ScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: 10,
+                itemBuilder: (BuildContext context, int index) {
+                  return Column(
+                    children: [
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+                          child: Stack(
+                            clipBehavior: Clip.none,
+                            alignment: Alignment
+                                .center, // Center children in the Stack
+                            children: [
+                              Container(
+                                width: 350,
+                                height: 300,
+                                color: Colors.blue,
+                                child: Image.asset(
+                                    'assets/images/hinhgaidep.jpg',
+                                    fit: BoxFit.cover),
+                              ),
+                              Positioned(
+                                top: 250,
+                                left: 20,
+                                right: 20,
+                                bottom: -40,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: const Color.fromARGB(
+                                          255, 243, 255, 140),
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: const Padding(
+                                    padding:
+                                        EdgeInsets.fromLTRB(20, 20, 10, 10),
+                                    child: Text(
+                                      maxLines: 2,
+                                      "Android 14 will have native support to satellite connection.",
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(fontSize: 20),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                }),
           ),
         ),
       ]),
-      SingleChildScrollView(
-        child: Center(
-          child: ListView.builder(
-              physics: const ScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: 10,
-              itemBuilder: (BuildContext context, int index) {
-                return Column(
-                  children: [
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
-                        child: Stack(
-                          clipBehavior: Clip.none,
-                          alignment:
-                              Alignment.center, // Center children in the Stack
-                          children: [
-                            Container(
-                              width: 350,
-                              height: 300,
-                              color: Colors.blue,
-                              child: Image.asset('assets/images/hinhgaidep.jpg',
-                                  fit: BoxFit.cover),
-                            ),
-                            Positioned(
-                              top: 250,
-                              left: 20,
-                              right: 20,
-                              bottom: -40,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: const Color.fromARGB(
-                                        255, 243, 255, 140),
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: const Padding(
-                                  padding: EdgeInsets.fromLTRB(20, 20, 10, 10),
-                                  child: Text(
-                                    maxLines: 2,
-                                    "Android 14 will have native support to satellite connection.",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(fontSize: 20),
-                                  ),
+    ),
+
+    // friend
+    Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 110, 255, 120),
+              Color.fromARGB(255, 104, 235, 255),
+            ],
+            begin: FractionalOffset(0.0, 0.0),
+            end: FractionalOffset(1.0, 0.0),
+            stops: [0.0, 1.0],
+            tileMode: TileMode.clamp),
+      ),
+      child: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 20, 10, 5),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  Icon(Icons.add_circle_outline_outlined),
+                  Text('Bạn Bè',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+                  Icon(Icons.add_alert_outlined),
+                ]),
+          ),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(20, 10, 5, 0),
+            child: Text('Cùng thách đấu để nâng cao kiến thức'),
+          ),
+          SingleChildScrollView(
+            child: ListView.builder(
+                physics: const ScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: 15,
+                itemBuilder: (BuildContext context, int index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: _friend,
+                  );
+                }),
+          ),
+        ],
+      ),
+    ),
+    //
+
+    const TypeQuestions(),
+    //  rank
+    Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 110, 255, 120),
+              Color.fromARGB(255, 104, 235, 255),
+            ],
+            begin: FractionalOffset(0.0, 0.0),
+            end: FractionalOffset(1.0, 0.0),
+            stops: [0.0, 1.0],
+            tileMode: TileMode.clamp),
+      ),
+      child: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 20, 10, 5),
+            child: Center(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text('Xếp Hạng',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 24)),
+                  ]),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                width: 50,
+                height: 50,
+                decoration: const BoxDecoration(
+                    color: Colors.amber, shape: BoxShape.circle),
+                child: IconButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.amber,
+                    shape: const CircleBorder(),
+                  ),
+                  icon: const Icon(Icons.history_outlined, size: 30),
+                  onPressed: () {},
+                ),
+              ),
+            ],
+          ),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
+            CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage('assets/images/hinhgaidep.jpg')),
+          ]),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 10, 5, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(80, 0, 40, 20),
+                  child: Text(
+                    'Hạng 1',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const Text('100',
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold)),
+                Icon(Icons.star, color: Colors.yellow[800]),
+              ],
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(70, 0, 40, 20),
+            child: Text(
+              textAlign: TextAlign.center,
+              'Dương Nghĩa Hiệp',
+              style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          SingleChildScrollView(
+            child: ListView.builder(
+                physics: const ScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: 20,
+                itemBuilder: (BuildContext context, int index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: SizedBox(
+                      height: 100,
+                      child: Card(
+                        color: const Color.fromARGB(255, 242, 255, 183),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            ListTile(
+                              leading: const Padding(
+                                padding: EdgeInsets.only(left: 15),
+                                child: Text(
+                                  '1',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              title: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: const [
+                                  CircleAvatar(
+                                      radius: 30,
+                                      backgroundImage: AssetImage(
+                                          'assets/images/hinhgaidep.jpg')),
+                                  Text('Dương Nghĩa Hiệp',
+                                      style: TextStyle(
+                                          fontSize: 18, color: Colors.black)),
+                                ],
+                              ),
+                              trailing: RichText(
+                                text: const TextSpan(
+                                  children: [
+                                    TextSpan(
+                                        text: "100 ",
+                                        style: TextStyle(
+                                            fontSize: 18, color: Colors.red)),
+                                    WidgetSpan(
+                                      child: Icon(Icons.star,
+                                          size: 20, color: Colors.amberAccent),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -122,183 +340,11 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
-                  ],
-                );
-              }),
-        ),
+                  );
+                }),
+          ),
+        ],
       ),
-    ]),
-
-    // friend
-    ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(10, 20, 10, 5),
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                Icon(Icons.add_circle_outline_outlined),
-                Text('Bạn Bè',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
-                Icon(Icons.add_alert_outlined),
-              ]),
-        ),
-        const Padding(
-          padding: EdgeInsets.fromLTRB(20, 10, 5, 0),
-          child: Text('Cùng thách đấu để nâng cao kiến thức'),
-        ),
-        SingleChildScrollView(
-          child: ListView.builder(
-              physics: const ScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: 15,
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: _friend,
-                );
-              }),
-        ),
-      ],
-    ),
-    //
-
-    const TypeQuestions(),
-    //  rank
-    ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(10, 20, 10, 5),
-          child: Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text('Xếp Hạng',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
-                ]),
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              width: 50,
-              height: 50,
-              decoration: const BoxDecoration(
-                  color: Colors.amber, shape: BoxShape.circle),
-              child: IconButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.amber,
-                  shape: const CircleBorder(),
-                ),
-                icon: const Icon(Icons.history_outlined, size: 30),
-                onPressed: () {},
-              ),
-            ),
-          ],
-        ),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
-          CircleAvatar(
-              radius: 50,
-              backgroundImage: AssetImage('assets/images/hinhgaidep.jpg')),
-        ]),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 10, 5, 0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Padding(
-                padding: EdgeInsets.fromLTRB(80, 0, 40, 20),
-                child: Text(
-                  'Hạng 1',
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              const Text('100',
-                  style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold)),
-              Icon(Icons.star, color: Colors.yellow[800]),
-            ],
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.fromLTRB(70, 0, 40, 20),
-          child: Text(
-            textAlign: TextAlign.center,
-            'Dương Nghĩa Hiệp',
-            style: TextStyle(
-                fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-        ),
-        SingleChildScrollView(
-          child: ListView.builder(
-              physics: const ScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: 20,
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: SizedBox(
-                    height: 100,
-                    child: Card(
-                      color: const Color.fromARGB(255, 242, 255, 183),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          ListTile(
-                            leading: const Padding(
-                              padding: EdgeInsets.only(left: 15),
-                              child: Text(
-                                '1',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            title: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: const [
-                                CircleAvatar(
-                                    radius: 30,
-                                    backgroundImage: AssetImage(
-                                        'assets/images/hinhgaidep.jpg')),
-                                Text('Dương Nghĩa Hiệp',
-                                    style: TextStyle(
-                                        fontSize: 18, color: Colors.black)),
-                              ],
-                            ),
-                            trailing: RichText(
-                              text: const TextSpan(
-                                children: [
-                                  TextSpan(
-                                      text: "100 ",
-                                      style: TextStyle(
-                                          fontSize: 18, color: Colors.red)),
-                                  WidgetSpan(
-                                    child: Icon(Icons.star,
-                                        size: 20, color: Colors.amberAccent),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              }),
-        ),
-      ],
     ),
     // setting
 
@@ -495,9 +541,9 @@ class _HomeState extends State<Home> {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: const Text(
+                        const Padding(
+                          padding: EdgeInsets.only(top: 20),
+                          child: Text(
                             'Cài Đặt',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 40),
@@ -508,7 +554,7 @@ class _HomeState extends State<Home> {
                           child: CircleAvatar(
                             radius: 60,
                             backgroundImage:
-                                AssetImage('assets/images/hinhgaidep.jpg'),
+                                AssetImage('assets/images/yone_hoalinh.png'),
                           ),
                         ),
                         const Text('Dương Nghĩa Hiệp',
@@ -516,9 +562,9 @@ class _HomeState extends State<Home> {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 25,
                                 color: Colors.white)),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20, bottom: 20),
-                          child: const Text('Tổng Điểm: 1000',
+                        const Padding(
+                          padding: EdgeInsets.only(top: 20, bottom: 20),
+                          child: Text('Tổng Điểm: 1000',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
