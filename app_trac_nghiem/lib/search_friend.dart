@@ -68,7 +68,7 @@ class _SearchFriendState extends State<SearchFriend> {
                     return Column(
                       children: [
                         Card(
-                          color: Color.fromARGB(255, 253, 248, 229),
+                          color: const Color.fromARGB(255, 253, 248, 229),
                           child: ListTile(
                             leading: const CircleAvatar(
                                 radius: 40,

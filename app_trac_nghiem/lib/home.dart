@@ -1,6 +1,5 @@
 import 'package:app_trac_nghiem/type_questions.dart';
 import 'package:flutter/material.dart';
-import 'play.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,11 +11,11 @@ class Home extends StatefulWidget {
 //home
 //friend
 Card _friend = Card(
-  color: const Color.fromARGB(255, 252, 235, 174),
+  color: const Color.fromARGB(255, 242, 255, 183),
   child: ListTile(
     leading: const CircleAvatar(
         radius: 40,
-        backgroundImage: AssetImage('assets/images/hinhgaidep.jpg')),
+        backgroundImage: AssetImage('assets/images/yone_hoalinh.png')),
     title: const Text('Top 1',
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 18, color: Colors.redAccent)),
@@ -34,8 +33,7 @@ Card _friend = Card(
         ],
       ),
     ),
-    trailing: IconButton(
-        onPressed: () {}, icon: const Icon(Icons.screen_share_outlined)),
+    trailing: IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
     isThreeLine: true,
   ),
 );
@@ -108,7 +106,7 @@ class _HomeState extends State<Home> {
                                 height: 300,
                                 color: Colors.blue,
                                 child: Image.asset(
-                                    'assets/images/hinhgaidep.jpg',
+                                    'assets/images/yone_hoalinh.png',
                                     fit: BoxFit.cover),
                               ),
                               Positioned(
@@ -165,11 +163,11 @@ class _HomeState extends State<Home> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: const [
-                  Icon(Icons.add_circle_outline_outlined),
+                  Icon(Icons.add_circle_outline_outlined, size: 40),
                   Text('Bạn Bè',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
-                  Icon(Icons.add_alert_outlined),
+                  Icon(Icons.add_alert_outlined, size: 40),
                 ]),
           ),
           const Padding(
@@ -210,76 +208,78 @@ class _HomeState extends State<Home> {
       ),
       child: ListView(
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(10, 20, 10, 5),
-            child: Center(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text('Xếp Hạng',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 24)),
-                  ]),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 50,
-                height: 50,
-                decoration: const BoxDecoration(
-                    color: Colors.amber, shape: BoxShape.circle),
-                child: IconButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.amber,
-                    shape: const CircleBorder(),
-                  ),
-                  icon: const Icon(Icons.history_outlined, size: 30),
-                  onPressed: () {},
+              const Padding(
+                padding: EdgeInsets.fromLTRB(0, 20, 0, 5),
+                child: Text('Xếp Hạng',
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 120),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Row(
+                      children: const [
+                        Text('100',
+                            textAlign: TextAlign.end,
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.redAccent,
+                                fontWeight: FontWeight.bold)),
+                        Icon(
+                          Icons.star,
+                          color: Colors.yellow,
+                          size: 30,
+                        ),
+                      ],
+                    ),
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: const BoxDecoration(
+                          color: Colors.amberAccent, shape: BoxShape.circle),
+                      child: IconButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.amberAccent,
+                          shape: const CircleBorder(),
+                        ),
+                        icon: const Icon(Icons.history_outlined, size: 30),
+                        onPressed: () {},
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const CircleAvatar(
+                  radius: 50,
+                  backgroundImage:
+                      AssetImage('assets/images/yone_hoalinh.png')),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                child: Text(
+                  'Hạng 1',
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                child: Text(
+                  //textAlign: TextAlign.center,
+                  'Dương Nghĩa Hiệp',
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ],
-          ),
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
-            CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage('assets/images/hinhgaidep.jpg')),
-          ]),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 10, 5, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(80, 0, 40, 20),
-                  child: Text(
-                    'Hạng 1',
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                const Text('100',
-                    style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold)),
-                Icon(Icons.star, color: Colors.yellow[800]),
-              ],
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.fromLTRB(70, 0, 40, 20),
-            child: Text(
-              textAlign: TextAlign.center,
-              'Dương Nghĩa Hiệp',
-              style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold),
-            ),
           ),
           SingleChildScrollView(
             child: ListView.builder(
@@ -347,259 +347,269 @@ class _HomeState extends State<Home> {
       ),
     ),
     // setting
-
-    Column(
+    ListView(
       children: [
-        Center(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 40),
-            child: Stack(
-              alignment: Alignment.topCenter,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 350),
-                  child: Container(
-                    width: 420,
-                    height: 453,
-                    decoration: BoxDecoration(
-                        color: Colors.greenAccent[200],
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 80, left: 60),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: 300,
-                                height: 70,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                    ),
-                                    backgroundColor: Colors.black54,
-                                  ),
-                                  onPressed: () {},
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                          width: 50,
-                                          height: 50,
-                                          decoration: BoxDecoration(
-                                              color: Colors.grey,
-                                              borderRadius:
-                                                  BorderRadius.circular(15)),
-                                          child: const Icon(
-                                            Icons.person,
-                                            size: 30,
-                                          )),
-                                      const Padding(
-                                        padding: EdgeInsets.only(right: 50),
-                                        child: Text(
-                                          'Tài Khoản',
-                                          style: TextStyle(fontSize: 20),
+        Column(
+          children: [
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 40),
+                child: Stack(
+                  alignment: Alignment.topCenter,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 350),
+                      child: Container(
+                        width: 420,
+                        height: 453,
+                        decoration: BoxDecoration(
+                            color: Colors.greenAccent[200],
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 80, left: 60),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    width: 300,
+                                    height: 70,
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(25),
                                         ),
+                                        backgroundColor: Colors.black54,
                                       ),
-                                      const Icon(
-                                          Icons.keyboard_arrow_right_outlined)
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20, left: 60),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: 300,
-                                height: 70,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(25),
+                                      onPressed: () {},
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                              width: 50,
+                                              height: 50,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.grey,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15)),
+                                              child: const Icon(
+                                                Icons.person,
+                                                size: 30,
+                                              )),
+                                          const Padding(
+                                            padding: EdgeInsets.only(right: 50),
+                                            child: Text(
+                                              'Tài Khoản',
+                                              style: TextStyle(fontSize: 20),
+                                            ),
+                                          ),
+                                          const Icon(Icons
+                                              .keyboard_arrow_right_outlined)
+                                        ],
+                                      ),
                                     ),
-                                    backgroundColor: Colors.black54,
                                   ),
-                                  onPressed: () {},
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                          width: 50,
-                                          height: 50,
-                                          decoration: BoxDecoration(
-                                              color: Colors.grey,
-                                              borderRadius:
-                                                  BorderRadius.circular(15)),
-                                          child: const Icon(
-                                            Icons.history_outlined,
-                                            size: 30,
-                                          )),
-                                      const Padding(
-                                        padding: EdgeInsets.only(right: 40),
-                                        child: Text(
-                                          'Lịch Sử Đấu',
-                                          style: TextStyle(fontSize: 20),
-                                        ),
-                                      ),
-                                      const Icon(
-                                          Icons.keyboard_arrow_right_outlined)
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20, left: 60),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: 300,
-                                height: 70,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                    ),
-                                    backgroundColor: Colors.black54,
-                                  ),
-                                  onPressed: () {},
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                          width: 50,
-                                          height: 50,
-                                          decoration: BoxDecoration(
-                                              color: Colors.grey,
-                                              borderRadius:
-                                                  BorderRadius.circular(15)),
-                                          child: const Icon(
-                                            Icons.lock_outline,
-                                            size: 30,
-                                          )),
-                                      const Padding(
-                                        padding: EdgeInsets.only(right: 30),
-                                        child: Text(
-                                          'Đổi Mật Khẩu',
-                                          style: TextStyle(fontSize: 20),
-                                        ),
-                                      ),
-                                      const Icon(
-                                          Icons.keyboard_arrow_right_outlined)
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20, left: 15),
-                          child: SizedBox(
-                            width: 250,
-                            height: 50,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(40),
-                                ),
-                                backgroundColor: Colors.green,
-                              ),
-                              onPressed: () {},
-                              child: const Text(
-                                'Đăng Xuất',
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.black),
+                                ],
                               ),
                             ),
-                          ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20, left: 60),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    width: 300,
+                                    height: 70,
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                        ),
+                                        backgroundColor: Colors.black54,
+                                      ),
+                                      onPressed: () {},
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                              width: 50,
+                                              height: 50,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.grey,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15)),
+                                              child: const Icon(
+                                                Icons.history_outlined,
+                                                size: 30,
+                                              )),
+                                          const Padding(
+                                            padding: EdgeInsets.only(right: 40),
+                                            child: Text(
+                                              'Lịch Sử Đấu',
+                                              style: TextStyle(fontSize: 20),
+                                            ),
+                                          ),
+                                          const Icon(Icons
+                                              .keyboard_arrow_right_outlined)
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20, left: 60),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    width: 300,
+                                    height: 70,
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                        ),
+                                        backgroundColor: Colors.black54,
+                                      ),
+                                      onPressed: () {},
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                              width: 50,
+                                              height: 50,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.grey,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15)),
+                                              child: const Icon(
+                                                Icons.lock_outline,
+                                                size: 30,
+                                              )),
+                                          const Padding(
+                                            padding: EdgeInsets.only(right: 30),
+                                            child: Text(
+                                              'Đổi Mật Khẩu',
+                                              style: TextStyle(fontSize: 20),
+                                            ),
+                                          ),
+                                          const Icon(Icons
+                                              .keyboard_arrow_right_outlined)
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20, left: 15),
+                              child: SizedBox(
+                                width: 250,
+                                height: 50,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(40),
+                                    ),
+                                    backgroundColor: Colors.green,
+                                  ),
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'Đăng Xuất',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.black),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
-                Container(
-                  width: 350,
-                  height: 420,
-                  decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 20),
-                          child: Text(
-                            'Cài Đặt',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 40),
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 20, bottom: 10),
-                          child: CircleAvatar(
-                            radius: 60,
-                            backgroundImage:
-                                AssetImage('assets/images/yone_hoalinh.png'),
-                          ),
-                        ),
-                        const Text('Dương Nghĩa Hiệp',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
-                                color: Colors.white)),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 20, bottom: 20),
-                          child: Text('Tổng Điểm: 1000',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.yellow)),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10),
-                          child: SizedBox(
-                            width: 150,
-                            height: 50,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(40),
-                                ),
-                                backgroundColor: Colors.amberAccent,
-                              ),
-                              onPressed: () {},
-                              child: const Text(
-                                'Xem Lịch Sử',
+                    Container(
+                      width: 350,
+                      height: 420,
+                      decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(top: 20),
+                              child: Text(
+                                'Cài Đặt',
                                 style: TextStyle(
-                                    fontSize: 15, color: Colors.black),
+                                    fontWeight: FontWeight.bold, fontSize: 40),
                               ),
                             ),
-                          ),
-                        ),
-                      ]),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 20, bottom: 10),
+                              child: CircleAvatar(
+                                radius: 60,
+                                backgroundImage: AssetImage(
+                                    'assets/images/yone_hoalinh.png'),
+                              ),
+                            ),
+                            const Text('Dương Nghĩa Hiệp',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                    color: Colors.white)),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 20, bottom: 20),
+                              child: Text('Tổng Điểm: 1000',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.yellow)),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: SizedBox(
+                                width: 150,
+                                height: 50,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(40),
+                                    ),
+                                    backgroundColor: Colors.amberAccent,
+                                  ),
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'Xem Lịch Sử',
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.black),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ]),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ],
     ),
   ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;

@@ -60,7 +60,7 @@ class _LoginState extends State<Login> {
                     width: 350,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFFF6FF92)),
+                        color: const Color(0xFFF6FF92)),
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'example@gmai.com',
@@ -69,7 +69,7 @@ class _LoginState extends State<Login> {
                           child: Icon(Icons.alternate_email_outlined),
                         ),
                         filled: true,
-                        fillColor: Color(0xFFF6FF92),
+                        fillColor: const Color(0xFFF6FF92),
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10)),
@@ -87,7 +87,7 @@ class _LoginState extends State<Login> {
                     width: 350,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFFF6FF92)),
+                        color: const Color(0xFFF6FF92)),
                     child: TextField(
                       obscureText: true,
                       decoration: InputDecoration(
@@ -97,7 +97,7 @@ class _LoginState extends State<Login> {
                           child: Icon(Icons.lock),
                         ),
                         filled: true,
-                        fillColor: Color(0xFFF6FF92),
+                        fillColor: const Color(0xFFF6FF92),
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10)),
