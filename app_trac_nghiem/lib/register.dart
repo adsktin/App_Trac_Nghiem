@@ -52,7 +52,7 @@ class _RegisterState extends State<Register> {
                     width: 350,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFFF6FF92)),
+                        color: const Color(0xFFF6FF92)),
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'Nhập họ và tên...',
@@ -61,7 +61,7 @@ class _RegisterState extends State<Register> {
                           child: Icon(Icons.person),
                         ),
                         filled: true,
-                        fillColor: Color(0xFFF6FF92),
+                        fillColor: const Color(0xFFF6FF92),
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10)),
@@ -79,7 +79,7 @@ class _RegisterState extends State<Register> {
                     width: 350,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFFF6FF92)),
+                        color: const Color(0xFFF6FF92)),
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'example@gmail.com',
@@ -88,7 +88,7 @@ class _RegisterState extends State<Register> {
                           child: Icon(Icons.alternate_email_outlined),
                         ),
                         filled: true,
-                        fillColor: Color(0xFFF6FF92),
+                        fillColor: const Color(0xFFF6FF92),
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10)),
@@ -106,7 +106,7 @@ class _RegisterState extends State<Register> {
                     width: 350,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFFF6FF92)),
+                        color: const Color(0xFFF6FF92)),
                     child: TextField(
                       obscureText: true,
                       decoration: InputDecoration(
@@ -116,7 +116,7 @@ class _RegisterState extends State<Register> {
                           child: Icon(Icons.lock),
                         ),
                         filled: true,
-                        fillColor: Color(0xFFF6FF92),
+                        fillColor: const Color(0xFFF6FF92),
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10)),
@@ -132,10 +132,10 @@ class _RegisterState extends State<Register> {
                   ),
                   Container(
                     width: 350,
-                    margin: EdgeInsets.only(bottom: 50),
+                    margin: const EdgeInsets.only(bottom: 50),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFFF6FF92)),
+                        color: const Color(0xFFF6FF92)),
                     child: TextField(
                       obscureText: true,
                       decoration: InputDecoration(
@@ -145,7 +145,7 @@ class _RegisterState extends State<Register> {
                           child: Icon(Icons.lock),
                         ),
                         filled: true,
-                        fillColor: Color(0xFFF6FF92),
+                        fillColor: const Color(0xFFF6FF92),
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10)),

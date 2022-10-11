@@ -12,26 +12,27 @@ class _PlayState extends State<Play> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   leading: const BackButton(color: Colors.black),
-      //   backgroundColor: Colors.white,
-      // ),
+      appBar: AppBar(
+        leading: BackButton(
+            onPressed: () {
+              showAlertDialog(context);
+            },
+            color: Colors.black),
+        backgroundColor: Colors.white,
+      ),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 30, top: 40),
+            padding: const EdgeInsets.only(bottom: 35, top: 10),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                IconButton(
-                    onPressed: () {
-                      showAlertDialog(context);
-                    },
-                    icon: const Icon(Icons.arrow_back)),
-                Padding(
-                  padding: const EdgeInsets.only(left: 130),
-                  child: const CircleAvatar(radius: 30, child: Text('10s')),
-                ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                CircleAvatar(
+                    radius: 40,
+                    child: Text(
+                      '10s',
+                      style: TextStyle(fontSize: 20),
+                    )),
               ],
             ),
           ),
@@ -41,8 +42,8 @@ class _PlayState extends State<Play> {
             children: [
               Container(
                 height: 300,
-                color: Color.fromARGB(255, 0, 48, 87),
-                child: Center(
+                color: const Color.fromARGB(255, 0, 48, 87),
+                child: const Center(
                   child: Text(
                     'Gà có trước hay trứng có trước?',
                     style: TextStyle(
@@ -54,14 +55,14 @@ class _PlayState extends State<Play> {
                 ),
               ),
               Positioned(
-                top: -20,
-                left: 170,
-                right: 170,
-                bottom: 270,
+                top: -30,
+                left: 100,
+                right: 100,
+                bottom: 260,
                 child: Container(
-                  width: 10,
+                  width: 50,
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 90, 80, 177),
+                      color: const Color.fromARGB(255, 90, 80, 177),
                       borderRadius: BorderRadius.circular(20)),
                   child: const Padding(
                     padding: EdgeInsets.all(0),
@@ -93,7 +94,7 @@ class _PlayState extends State<Play> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.yellow,
-                          backgroundColor: Color(0xFF1A2849),
+                          backgroundColor: const Color(0xFF1A2849),
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(25),
@@ -102,7 +103,7 @@ class _PlayState extends State<Play> {
                       onPressed: () {},
                       child: Row(
                         children: [
-                          Text(
+                          const Text(
                             'A:',
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
@@ -111,7 +112,7 @@ class _PlayState extends State<Play> {
                               padding: const EdgeInsets.only(left: 20),
                               child: Text('Gà có trước',
                                   style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                           color: Colors.white,
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold)))),
@@ -131,7 +132,7 @@ class _PlayState extends State<Play> {
                 Container(
                   width: 70,
                   height: 70,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.amber, shape: BoxShape.circle),
                   child: IconButton(
                     style: TextButton.styleFrom(
@@ -145,7 +146,7 @@ class _PlayState extends State<Play> {
                 Container(
                   width: 70,
                   height: 70,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.amber, shape: BoxShape.circle),
                   child: IconButton(
                     style: TextButton.styleFrom(
@@ -159,7 +160,7 @@ class _PlayState extends State<Play> {
                 Container(
                   width: 70,
                   height: 70,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.amber, shape: BoxShape.circle),
                   child: IconButton(
                     style: TextButton.styleFrom(

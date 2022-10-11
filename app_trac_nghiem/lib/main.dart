@@ -1,5 +1,6 @@
 //import 'package:app_trac_nghiem/history.dart';
 //import 'package:app_trac_nghiem/type_questions.dart';
+import 'package:app_trac_nghiem/edit_info.dart';
 import 'package:app_trac_nghiem/history.dart';
 import 'package:app_trac_nghiem/search_friend.dart';
 import 'package:app_trac_nghiem/test.dart';
@@ -10,7 +11,6 @@ import 'login.dart';
 import 'register.dart';
 import 'home.dart';
 import 'loading.dart';
-import 'firstscreen.dart';
 import 'play.dart';
 
 void main() {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const SearchFriend(),
+        home: const EditInfo(),
         routes: {
           '/loading': (context) => const Loading(),
           '/firstscreen': (context) => const Firstscreen(),
@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
           '/register': (context) => const Register(),
           '/home': (context) => const Home(),
           '/play': (context) => const Play(),
+          '/edit_info': (context) => const EditInfo(),
         });
   }
 }
