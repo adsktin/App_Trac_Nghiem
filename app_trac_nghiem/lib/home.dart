@@ -1,3 +1,5 @@
+import 'package:app_trac_nghiem/color.dart';
+import 'package:app_trac_nghiem/detail_news.dart';
 import 'package:app_trac_nghiem/type_questions.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +8,54 @@ class Home extends StatefulWidget {
 
   @override
   State<Home> createState() => _HomeState();
+}
+
+showAlertDialog(BuildContext context) {
+  // set up the buttons
+  Widget cancelButton = TextButton(
+    child: const Text(
+      'Hủy',
+      style: TextStyle(color: Colors.red),
+    ),
+    onPressed: () {
+      Navigator.of(context, rootNavigator: true).pop();
+    },
+  );
+  Widget continueButton = TextButton(
+    child: const Text(
+      "Chơi",
+      style: TextStyle(color: Colors.green),
+    ),
+    onPressed: () {
+      //Navigator.push(
+      //context, MaterialPageRoute(builder: (context) => Page1()));
+      Navigator.of(context, rootNavigator: true).pushNamed('/play');
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    //backgroundColor: Colors.greenAccent,
+
+    title: const Text(
+      "Thông Báo",
+      textAlign: TextAlign.center,
+      style: TextStyle(color: Colors.red),
+    ),
+    content: const Text("Bạn có muốn vào trận đấu?"),
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
 
 //home
@@ -40,7 +90,7 @@ Card _friend = Card(
 
 //
 class _HomeState extends State<Home> {
-  int _selectedIndex = 4;
+  int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     // home
     Container(
@@ -93,45 +143,54 @@ class _HomeState extends State<Home> {
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: [
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
-                          child: Stack(
-                            clipBehavior: Clip.none,
-                            alignment: Alignment
-                                .center, // Center children in the Stack
-                            children: [
-                              Container(
-                                width: 350,
-                                height: 300,
-                                color: Colors.blue,
-                                child: Image.asset(
-                                    'assets/images/yone_hoalinh.png',
-                                    fit: BoxFit.cover),
-                              ),
-                              Positioned(
-                                top: 250,
-                                left: 20,
-                                right: 20,
-                                bottom: -40,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color.fromARGB(
-                                          255, 243, 255, 140),
-                                      borderRadius: BorderRadius.circular(20)),
-                                  child: const Padding(
-                                    padding:
-                                        EdgeInsets.fromLTRB(20, 20, 10, 10),
-                                    child: Text(
-                                      maxLines: 2,
-                                      "Android 14 will have native support to satellite connection.",
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(fontSize: 20),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) {
+                            return const Detail();
+                          }));
+                        },
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+                            child: Stack(
+                              clipBehavior: Clip.none,
+                              alignment: Alignment
+                                  .center, // Center children in the Stack
+                              children: [
+                                Container(
+                                  width: 350,
+                                  height: 300,
+                                  color: Colors.blue,
+                                  child: Image.asset(
+                                      'assets/images/yone_hoalinh.png',
+                                      fit: BoxFit.cover),
+                                ),
+                                Positioned(
+                                  top: 250,
+                                  left: 20,
+                                  right: 20,
+                                  bottom: -40,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color: const Color.fromARGB(
+                                            255, 243, 255, 140),
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    child: const Padding(
+                                      padding:
+                                          EdgeInsets.fromLTRB(20, 20, 10, 10),
+                                      child: Text(
+                                        maxLines: 2,
+                                        "Android 14 will have native support to satellite connection.",
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(fontSize: 20),
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -626,23 +685,23 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
               icon: Icon(Icons.home_filled, color: Colors.black),
               label: 'Home',
-              backgroundColor: Colors.greenAccent),
+              backgroundColor: Color(0xFF00FFD1)),
           BottomNavigationBarItem(
-              icon: Icon(Icons.monitor_heart_outlined, color: Colors.black),
+              icon: Icon(Icons.people_alt_outlined, color: Colors.black),
               label: 'Friend',
-              backgroundColor: Colors.greenAccent),
+              backgroundColor: Color(0xFF00FFD1)),
           BottomNavigationBarItem(
               icon: Icon(Icons.play_arrow_outlined, color: Colors.black),
               label: 'Play',
-              backgroundColor: Colors.greenAccent),
+              backgroundColor: Color(0xFF00FFD1)),
           BottomNavigationBarItem(
               icon: Icon(Icons.bar_chart_outlined, color: Colors.black),
               label: 'Rank',
-              backgroundColor: Colors.greenAccent),
+              backgroundColor: Color(0xFF00FFD1)),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings, color: Colors.black),
+              icon: Icon(Icons.settings_outlined, color: Colors.black),
               label: 'Setting',
-              backgroundColor: Colors.greenAccent),
+              backgroundColor: Color(0xFF00FFD1)),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.black,

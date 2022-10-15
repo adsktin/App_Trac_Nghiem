@@ -1,3 +1,4 @@
+import 'package:app_trac_nghiem/color.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter_signin_button/flutter_signin_button.dart';
 //import 'package:flutter_signin_button/button_view.dart';
@@ -48,7 +49,7 @@ class _FirstscreenState extends State<Firstscreen> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.black,
-                        backgroundColor: Colors.lightGreenAccent,
+                        backgroundColor: btncolor,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(25),
@@ -73,7 +74,7 @@ class _FirstscreenState extends State<Firstscreen> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.black,
-                        backgroundColor: Colors.lightGreenAccent,
+                        backgroundColor: btncolor,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(25),
