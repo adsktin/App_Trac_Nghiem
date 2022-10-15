@@ -1,3 +1,5 @@
+import 'package:app_trac_nghiem/color.dart';
+import 'package:app_trac_nghiem/register.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -7,7 +9,7 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 
-bool isChecked = false;
+bool isChecked = true;
 
 class _LoginState extends State<Login> {
   @override
@@ -28,7 +30,7 @@ class _LoginState extends State<Login> {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           leading: const BackButton(color: Colors.black),
-          backgroundColor: Colors.white,
+          backgroundColor: const Color.fromARGB(255, 110, 255, 120),
         ),
         body: Center(
           child: ListView(
@@ -60,7 +62,7 @@ class _LoginState extends State<Login> {
                     width: 350,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: const Color(0xFFF6FF92)),
+                        color: textfield),
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'example@gmai.com',
@@ -69,7 +71,7 @@ class _LoginState extends State<Login> {
                           child: Icon(Icons.alternate_email_outlined),
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFF6FF92),
+                        fillColor: textfield,
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10)),
@@ -87,7 +89,7 @@ class _LoginState extends State<Login> {
                     width: 350,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: const Color(0xFFF6FF92)),
+                        color: textfield),
                     child: TextField(
                       obscureText: true,
                       decoration: InputDecoration(
@@ -97,7 +99,7 @@ class _LoginState extends State<Login> {
                           child: Icon(Icons.lock),
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFF6FF92),
+                        fillColor: textfield,
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10)),
@@ -113,11 +115,9 @@ class _LoginState extends State<Login> {
                           children: [
                             Checkbox(
                               // checkColor: Colors.black,
-                              value: true,
-                              onChanged: (bool? value) => {
-                                setState(() {
-                                  isChecked = value!;
-                                })
+                              value: isChecked ? isChecked : !isChecked,
+                              onChanged: (value) {
+                                setState(() {});
                               },
                             ),
                             const Text('Ghi nhớ đăng nhập'),
@@ -132,7 +132,7 @@ class _LoginState extends State<Login> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.black,
-                            backgroundColor: Colors.lightGreenAccent,
+                            backgroundColor: btncolor,
                             shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(
                                 Radius.circular(25),
@@ -151,13 +151,23 @@ class _LoginState extends State<Login> {
                   ),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: const [
-                        Text(
-                          'Đăng ký',
-                          style: TextStyle(color: Colors.blue),
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context, rootNavigator: true)
+                                .pushNamed('/register');
+                          },
+                          child: const Text('Đăng Ký',
+                              style: TextStyle(color: Colors.blue)),
                         ),
-                        Text('Quên mật khẩu?',
-                            style: TextStyle(color: Colors.blue)),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context, rootNavigator: true)
+                                .pushNamed('/forgot_password');
+                          },
+                          child: const Text('Quên mật khẩu?',
+                              style: TextStyle(color: Colors.blue)),
+                        ),
                       ]),
                 ],
               ),

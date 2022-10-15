@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 // <-- Import statement
@@ -46,16 +45,40 @@ class _TestState extends State<Test> {
         body: Center(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 150),
-                child: Lottie.asset('assets/images/winner.json'),
-              ),
-              const Text(
-                'Test...',
-                style: TextStyle(
-                  fontSize: 40,
-                ),
-              ),
+              DataTable(
+                  decoration: BoxDecoration(
+                    color: Colors.amber,
+                  ),
+                  columns: [
+                    DataColumn(
+                      label: Text('STT'),
+                    ),
+                    DataColumn(
+                      label: Text('Avatar'),
+                    ),
+                    DataColumn(
+                      label: Text('Họ Và Tên'),
+                    ),
+                  ],
+                  rows: [
+                    DataRow(
+                      cells: [
+                        DataCell(
+                          Text('1'),
+                        ),
+                        DataCell(
+                          CircleAvatar(
+                            radius: 40,
+                            backgroundImage:
+                                AssetImage('assets/images/yone_hoalinh.png'),
+                          ),
+                        ),
+                        DataCell(
+                          Text('Dương Nghĩa Hiệp'),
+                        ),
+                      ],
+                    ),
+                  ]),
             ],
           ),
         ),

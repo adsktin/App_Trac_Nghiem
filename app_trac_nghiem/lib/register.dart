@@ -1,3 +1,4 @@
+import 'package:app_trac_nghiem/color.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
@@ -26,7 +27,7 @@ class _RegisterState extends State<Register> {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           leading: const BackButton(color: Colors.black),
-          backgroundColor: Colors.white,
+          backgroundColor: const Color.fromARGB(255, 110, 255, 120),
         ),
         body: Center(
           child: ListView(
@@ -52,7 +53,7 @@ class _RegisterState extends State<Register> {
                     width: 350,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: const Color(0xFFF6FF92)),
+                        color: textfield),
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'Nhập họ và tên...',
@@ -61,7 +62,7 @@ class _RegisterState extends State<Register> {
                           child: Icon(Icons.person),
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFF6FF92),
+                        fillColor: textfield,
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10)),
@@ -79,7 +80,7 @@ class _RegisterState extends State<Register> {
                     width: 350,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: const Color(0xFFF6FF92)),
+                        color: textfield),
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'example@gmail.com',
@@ -88,7 +89,7 @@ class _RegisterState extends State<Register> {
                           child: Icon(Icons.alternate_email_outlined),
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFF6FF92),
+                        fillColor: textfield,
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10)),
@@ -106,7 +107,7 @@ class _RegisterState extends State<Register> {
                     width: 350,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: const Color(0xFFF6FF92)),
+                        color: textfield),
                     child: TextField(
                       obscureText: true,
                       decoration: InputDecoration(
@@ -116,7 +117,7 @@ class _RegisterState extends State<Register> {
                           child: Icon(Icons.lock),
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFF6FF92),
+                        fillColor: textfield,
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10)),
@@ -135,7 +136,7 @@ class _RegisterState extends State<Register> {
                     margin: const EdgeInsets.only(bottom: 50),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: const Color(0xFFF6FF92)),
+                        color: textfield),
                     child: TextField(
                       obscureText: true,
                       decoration: InputDecoration(
@@ -145,7 +146,7 @@ class _RegisterState extends State<Register> {
                           child: Icon(Icons.lock),
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFF6FF92),
+                        fillColor: textfield,
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10)),
@@ -158,7 +159,7 @@ class _RegisterState extends State<Register> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.black,
-                          backgroundColor: Colors.lightGreenAccent,
+                          backgroundColor: btncolor,
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(25),
