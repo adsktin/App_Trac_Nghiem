@@ -1,6 +1,8 @@
 //import 'package:app_trac_nghiem/history.dart';
 //import 'package:app_trac_nghiem/type_questions.dart';
+import 'package:app_trac_nghiem/detail_news.dart';
 import 'package:app_trac_nghiem/edit_info.dart';
+import 'package:app_trac_nghiem/forgot_password.dart';
 import 'package:app_trac_nghiem/history.dart';
 import 'package:app_trac_nghiem/search_friend.dart';
 import 'package:app_trac_nghiem/test.dart';
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const EditInfo(),
+        home: const Home(),
         routes: {
           '/loading': (context) => const Loading(),
           '/firstscreen': (context) => const Firstscreen(),
@@ -33,6 +35,8 @@ class MyApp extends StatelessWidget {
           '/home': (context) => const Home(),
           '/play': (context) => const Play(),
           '/edit_info': (context) => const EditInfo(),
+          '/forgot_password': (context) => const ForgotPassword(),
+          '/detail': (context) => const Detail(),
         });
   }
 }
