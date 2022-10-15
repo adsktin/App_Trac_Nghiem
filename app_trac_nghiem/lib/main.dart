@@ -1,5 +1,7 @@
 //import 'package:app_trac_nghiem/history.dart';
 //import 'package:app_trac_nghiem/type_questions.dart';
+import 'package:app_trac_nghiem/accept_match.dart';
+import 'package:app_trac_nghiem/add_friends.dart';
 import 'package:app_trac_nghiem/detail_news.dart';
 import 'package:app_trac_nghiem/edit_info.dart';
 import 'package:app_trac_nghiem/forgot_password.dart';
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const Home(),
+        home: const AcceptMatch(),
         routes: {
           '/loading': (context) => const Loading(),
           '/firstscreen': (context) => const Firstscreen(),
