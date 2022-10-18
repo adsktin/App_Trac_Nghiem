@@ -1,3 +1,4 @@
+import 'package:app_trac_nghiem/color.dart';
 import 'package:flutter/material.dart';
 
 class Setting extends StatefulWidget {
@@ -153,7 +154,7 @@ class _SettingState extends State<Setting> {
                                         backgroundColor: Colors.black54,
                                       ),
                                       onPressed: () {
-                                        //  showChangePassword(context);
+                                        showChangePassword(context);
                                       },
                                       child: Row(
                                         mainAxisAlignment:
@@ -288,4 +289,107 @@ class _SettingState extends State<Setting> {
       ],
     );
   } // setting
+}
+
+showChangePassword(BuildContext context) {
+  // set up the buttons
+  Widget acceptButton = TextButton(
+    child: Container(
+      width: 100,
+      height: 30,
+      decoration: BoxDecoration(
+        color: Colors.amberAccent,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: const Center(
+        child: Text(
+          'Xác Nhận',
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
+    ),
+    onPressed: () {
+      Navigator.of(context, rootNavigator: true).pop();
+    },
+  );
+  // Widget continueButton = TextButton(
+  //   child: const Text(
+  //     "Chơi",
+  //     style: TextStyle(color: Colors.green),
+  //   ),
+  //   onPressed: () {
+  //     //Navigator.push(
+  //     //context, MaterialPageRoute(builder: (context) => Page1()));
+  //     Navigator.of(context, rootNavigator: true).pushNamed('/play');
+  //   },
+  // );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    //backgroundColor: Colors.greenAccent,
+
+    title: const Text(
+      "Đổi Mật Khẩu",
+      textAlign: TextAlign.center,
+      style: TextStyle(color: Colors.red),
+    ),
+    content: SizedBox(
+      width: 300,
+      height: 300,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Nhập mật khẫu cũ',
+                filled: true,
+                fillColor: textfield,
+                border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20, bottom: 20),
+            child: TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Nhập mật khẫu mới',
+                filled: true,
+                fillColor: textfield,
+                border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+            ),
+          ),
+          TextField(
+            obscureText: true,
+            decoration: InputDecoration(
+              labelText: 'Xác nhận mật khẫu mới',
+              filled: true,
+              fillColor: textfield,
+              border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(10)),
+            ),
+          ),
+        ],
+      ),
+    ),
+    actions: [
+      Center(child: acceptButton),
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }

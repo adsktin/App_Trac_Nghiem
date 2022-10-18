@@ -8,7 +8,7 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 
-bool isChecked = true;
+bool? isChecked = false;
 
 class _LoginState extends State<Login> {
   @override
@@ -118,9 +118,11 @@ class _LoginState extends State<Login> {
                           children: [
                             Checkbox(
                               // checkColor: Colors.black,
-                              value: isChecked ? isChecked : !isChecked,
+                              value: isChecked,
                               onChanged: (value) {
-                                setState(() {});
+                                setState(() {
+                                  isChecked = value;
+                                });
                               },
                             ),
                             const Text('Ghi nhớ đăng nhập'),

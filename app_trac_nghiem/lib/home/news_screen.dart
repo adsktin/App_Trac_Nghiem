@@ -9,6 +9,8 @@ class News extends StatefulWidget {
 }
 
 class _NewsState extends State<News> {
+  DateTime now = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,21 +34,28 @@ class _NewsState extends State<News> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: const [
-                Text('Công Nghệ',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
-              ],
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(8.0),
+          //   child: Row(
+          //     children: const [
+          //       Text('Công Nghệ',
+          //           style:
+          //               TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+          //     ],
+          //   ),
+          // ),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
             child: Row(
-              children: const [
-                Text('Ngày 2 tháng 10 năm 2022', style: TextStyle()),
+              children: [
+                Text(
+                    'Ngày ' +
+                        now.day.toString() +
+                        " Tháng " +
+                        now.month.toString() +
+                        " Năm " +
+                        now.year.toString(),
+                    style: TextStyle()),
               ],
             ),
           ),
