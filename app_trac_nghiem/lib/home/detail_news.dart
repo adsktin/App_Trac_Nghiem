@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Detail extends StatelessWidget {
+class Detail extends StatefulWidget {
   const Detail({super.key});
 
+  @override
+  State<Detail> createState() => _DetailState();
+}
+
+class _DetailState extends State<Detail> {
+  DateTime now = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,10 +19,15 @@ class Detail extends StatelessWidget {
       body: Center(
         child: ListView(
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.fromLTRB(70, 20, 0, 20),
               child: Text(
-                'Ngày 15 tháng 10 năm 2022',
+                'Ngày ' +
+                    now.day.toString() +
+                    " Tháng " +
+                    now.month.toString() +
+                    " Năm " +
+                    now.year.toString(),
                 style: TextStyle(fontSize: 18),
               ),
             ),
