@@ -13,6 +13,7 @@ class _TypeQuestionsState extends State<TypeQuestions> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 188, 255, 240),
       appBar: AppBar(
+        leading: const BackButton(color: Colors.black),
         backgroundColor: const Color.fromARGB(255, 188, 255, 240),
         title: const Center(
           child: Text('Thể Loại',

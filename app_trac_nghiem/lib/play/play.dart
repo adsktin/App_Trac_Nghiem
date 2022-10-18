@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:async';
 
 class Play extends StatefulWidget {
   const Play({super.key});
@@ -9,7 +10,20 @@ class Play extends StatefulWidget {
 }
 
 class _PlayState extends State<Play> {
+  static int _count = 10;
+  bool isSelected = false;
   @override
+  void initState() {
+    super.initState();
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (_count > 0) {
+        setState(() {
+          _count--;
+        });
+      }
+    });
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -26,12 +40,12 @@ class _PlayState extends State<Play> {
             padding: const EdgeInsets.only(bottom: 35, top: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 CircleAvatar(
                     radius: 40,
                     child: Text(
-                      '10s',
-                      style: TextStyle(fontSize: 20),
+                      _count.toString(),
+                      style: const TextStyle(fontSize: 20),
                     )),
               ],
             ),
@@ -81,6 +95,34 @@ class _PlayState extends State<Play> {
               ),
             ],
           ),
+          // ElevatedButton(
+          //             style: ElevatedButton.styleFrom(
+          //                 foregroundColor: Colors.yellow,
+          //                 backgroundColor: const Color(0xFF1A2849),
+          //                 shape: const RoundedRectangleBorder(
+          //                   borderRadius: BorderRadius.all(
+          //                     Radius.circular(25),
+          //                   ),
+          //                 )),
+          //             onPressed: () {},
+          //             child: Row(
+          //               children: [
+          //                 const Text(
+          //                   'A:',
+          //                   style: TextStyle(
+          //                       fontSize: 20, fontWeight: FontWeight.bold),
+          //                 ),
+          //                 Padding(
+          //                     padding: const EdgeInsets.only(left: 20),
+          //                     child: Text('Gà có trước',
+          //                         style: GoogleFonts.poppins(
+          //                             textStyle: const TextStyle(
+          //                                 color: Colors.white,
+          //                                 fontSize: 20,
+          //                                 fontWeight: FontWeight.bold)))),
+          //               ],
+          //             ),
+          //           ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 30, right: 30),
@@ -91,33 +133,15 @@ class _PlayState extends State<Play> {
                   child: SizedBox(
                     width: 350,
                     height: 50,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.yellow,
-                          backgroundColor: const Color(0xFF1A2849),
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(25),
-                            ),
-                          )),
-                      onPressed: () {},
-                      child: Row(
-                        children: [
-                          const Text(
-                            'A:',
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
-                          Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: Text('Gà có trước',
-                                  style: GoogleFonts.poppins(
-                                      textStyle: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold)))),
-                        ],
-                      ),
+                    child: ChoiceChip(
+                      selectedColor: Color.fromARGB(255, 123, 213, 255),
+                      label: Text('A: Gà có trước'),
+                      selected: isSelected,
+                      onSelected: (newState) {
+                        setState(() {
+                          isSelected = newState;
+                        });
+                      },
                     ),
                   ),
                 ),

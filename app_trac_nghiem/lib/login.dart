@@ -1,5 +1,4 @@
 import 'package:app_trac_nghiem/color.dart';
-import 'package:app_trac_nghiem/register.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -38,7 +37,7 @@ class _LoginState extends State<Login> {
               Image.asset(
                 'assets/images/monkeylogo.png',
                 //width: 200,
-                height: 300,
+                height: 200,
               ),
               Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -66,6 +65,10 @@ class _LoginState extends State<Login> {
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'example@gmai.com',
+                        // prefixIcon: const Padding(
+                        //   padding: EdgeInsets.only(left: 20),
+                        //   child: Icon(Icons.alternate_email_outlined),
+                        // ),
                         icon: const Padding(
                           padding: EdgeInsets.only(left: 20),
                           child: Icon(Icons.alternate_email_outlined),

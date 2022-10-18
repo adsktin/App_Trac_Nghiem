@@ -1,3 +1,4 @@
+import 'package:app_trac_nghiem/color.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 // <-- Import statement
@@ -16,12 +17,12 @@ class _ResultState extends State<Result> {
     return Container(
       decoration: const BoxDecoration(),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        //backgroundColor: Colors.transparent,
         body: Center(
           child: ListView(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 100),
+                padding: const EdgeInsets.only(top: 50),
                 child: Lottie.asset('assets/images/winner.json', height: 400),
               ),
               Column(
@@ -33,21 +34,19 @@ class _ResultState extends State<Result> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
+                    padding: const EdgeInsets.only(bottom: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Text(
                           'Tổng điểm: ',
                           style: TextStyle(
-                            fontSize: 40,
+                            fontSize: 30,
                           ),
                         ),
                         Text(
                           '100',
-                          style: TextStyle(
-                            fontSize: 40,
-                          ),
+                          style: TextStyle(fontSize: 30, color: Colors.red),
                         ),
                       ],
                     ),
@@ -59,11 +58,14 @@ class _ResultState extends State<Result> {
                         width: 100,
                         height: 100,
                         decoration: BoxDecoration(
-                            color: Colors.amber,
+                            color: textfield,
                             borderRadius: BorderRadius.circular(50)),
                         child: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
+                            onPressed: () {
+                              Navigator.of(context, rootNavigator: true)
+                                  .pushNamed('/home');
+                            },
+                            icon: const Icon(
                               Icons.home,
                               size: 80,
                             )),
@@ -72,11 +74,14 @@ class _ResultState extends State<Result> {
                         width: 100,
                         height: 100,
                         decoration: BoxDecoration(
-                            color: Colors.amber,
+                            color: textfield,
                             borderRadius: BorderRadius.circular(50)),
                         child: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
+                            onPressed: () {
+                              Navigator.of(context, rootNavigator: true)
+                                  .pushNamed('/type_question');
+                            },
+                            icon: const Icon(
                               Icons.play_arrow_outlined,
                               size: 80,
                             )),
