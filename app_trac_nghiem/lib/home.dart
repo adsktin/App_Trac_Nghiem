@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:app_trac_nghiem/color.dart';
 import 'package:app_trac_nghiem/detail_news.dart';
 import 'package:app_trac_nghiem/type_questions.dart';
@@ -540,7 +542,9 @@ class _HomeState extends State<Home> {
                                         ),
                                         backgroundColor: Colors.black54,
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                      //  showChangePassword(context);
+                                      },
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
@@ -709,4 +713,50 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+}
+
+showChangePassword(BuildContext context) {
+  // set up the buttons
+  Widget cancelButton = TextButton(
+    child: const Text(
+      'Hủy',
+      style: TextStyle(color: Colors.red),
+    ),
+    onPressed: () {
+      Navigator.of(context, rootNavigator: true).pop();
+    },
+  );
+  Widget continueButton = TextButton(
+    child: const Text(
+      "Chơi",
+      style: TextStyle(color: Colors.green),
+    ),
+    onPressed: () {
+      
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    //backgroundColor: Colors.greenAccent,
+
+    title: const Text(
+      "Thông Báo",
+      textAlign: TextAlign.center,
+      style: TextStyle(color: Colors.red),
+    ),
+    content: const Text("Bạn có muốn vào trận đấu?"),
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
