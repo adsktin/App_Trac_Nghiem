@@ -35,7 +35,7 @@ class _RegisterState extends State<Register> {
               Column(
                 children: [
                   const Padding(
-                    padding: EdgeInsets.only(top: 150),
+                    padding: EdgeInsets.only(top: 100),
                     child: Text(
                       'Đăng Ký',
                       style:

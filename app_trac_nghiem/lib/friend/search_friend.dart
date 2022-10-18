@@ -17,6 +17,7 @@ class _SearchFriendState extends State<SearchFriend> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 188, 255, 240),
       appBar: AppBar(
+        leading: const BackButton(color: Colors.black),
         backgroundColor: const Color.fromARGB(255, 188, 255, 240),
         title: const Center(
           child: Text('Tìm Bạn',
@@ -25,9 +26,10 @@ class _SearchFriendState extends State<SearchFriend> {
                   fontWeight: FontWeight.bold,
                   color: Colors.black)),
         ),
+
         // actions: <Widget>[
         //   IconButton(
-        //     icon: const Icon(Icons.play_arrow_outlined),
+        //     icon: const Icon(Icons.search),
         //     tooltip: 'Tìm kiếm',
         //     color: Colors.black,
         //     iconSize: 40,

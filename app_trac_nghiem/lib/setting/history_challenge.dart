@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-//import 'package:flutter_signin_button/flutter_signin_button.dart';
-//import 'package:flutter_signin_button/button_view.dart';
 
 class HistoryChallenge extends StatefulWidget {
   const HistoryChallenge({super.key});
@@ -10,34 +8,30 @@ class HistoryChallenge extends StatefulWidget {
   State<HistoryChallenge> createState() => _HistoryChallengeState();
 }
 
-Padding _friend = Padding(
-    padding: EdgeInsets.fromLTRB(2, 2, 2, 2),
-    child: Padding(
-      padding: EdgeInsets.fromLTRB(20, 2, 20, 2),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Color.fromARGB(255, 164, 255, 199),
-          border: Border.all(color: Color.fromARGB(255, 13, 151, 66)),
-          borderRadius: BorderRadius.circular(10),
-        ),
+Padding _challenge = Padding(
+    padding: const EdgeInsets.fromLTRB(2, 2, 2, 2),
+    child: Container(
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 164, 255, 199),
+        border: Border.all(color: const Color.fromARGB(255, 13, 151, 66)),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20),
         child: Row(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-            ),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(10),
+                const Padding(
+                  padding: EdgeInsets.all(5),
                   child: CircleAvatar(
-                    radius: 45,
+                    radius: 40,
                     backgroundImage:
                         AssetImage('assets/images/yone_hoalinh.png'),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                   child: Column(
                     children: [
                       Text(
@@ -50,7 +44,7 @@ Padding _friend = Padding(
                       Text(
                         'Thua',
                         style: GoogleFonts.inter(
-                            color: Color.fromARGB(255, 255, 0, 0),
+                            color: const Color.fromARGB(255, 255, 0, 0),
                             fontSize: 15,
                             fontWeight: FontWeight.w700),
                       ),
@@ -60,7 +54,7 @@ Padding _friend = Padding(
               ],
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: Column(
                 children: [
                   Text(
@@ -70,17 +64,17 @@ Padding _friend = Padding(
                         fontSize: 15,
                         fontWeight: FontWeight.w600),
                   ),
-                  Container(child: Image.asset('assets/images/swords.png')),
+                  Image.asset('assets/images/swords.png'),
                 ],
               ),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(10),
+                const Padding(
+                  padding: EdgeInsets.all(5),
                   child: CircleAvatar(
-                    radius: 45,
+                    radius: 40,
                     backgroundImage:
                         AssetImage('assets/images/yone_hoalinh.png'),
                   ),
@@ -97,7 +91,7 @@ Padding _friend = Padding(
                     Text(
                       'Thắng',
                       style: GoogleFonts.inter(
-                          color: Color.fromARGB(255, 255, 0, 0),
+                          color: const Color.fromARGB(255, 255, 0, 0),
                           fontSize: 15,
                           fontWeight: FontWeight.w700),
                     ),
@@ -115,9 +109,10 @@ class _HistoryChallengeState extends State<HistoryChallenge> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const BackButton(color: Colors.black),
         title: const Center(
           child: Text(
-            'lịch sử thách đấu',
+            'Lịch sử thách đấu',
             style: TextStyle(
               color: Colors.black,
             ),
@@ -129,12 +124,9 @@ class _HistoryChallengeState extends State<HistoryChallenge> {
       ),
       body: ListView(
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(10, 20, 10, 5),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const []),
-          ),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: const []),
           SingleChildScrollView(
             child: ListView.builder(
                 physics: const ScrollPhysics(),
@@ -144,7 +136,7 @@ class _HistoryChallengeState extends State<HistoryChallenge> {
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: const EdgeInsets.all(5),
-                    child: _friend,
+                    child: _challenge,
                   );
                 }),
           ),
