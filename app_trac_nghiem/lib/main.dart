@@ -1,23 +1,23 @@
 //import 'package:app_trac_nghiem/history.dart';
 //import 'package:app_trac_nghiem/type_questions.dart';
 
-import 'package:app_trac_nghiem/detail_news.dart';
-import 'package:app_trac_nghiem/edit_info.dart';
+import 'package:app_trac_nghiem/home/detail_news.dart';
+import 'package:app_trac_nghiem/setting/edit_info.dart';
 import 'package:app_trac_nghiem/forgot_password.dart';
-import 'package:app_trac_nghiem/history.dart';
-import 'package:app_trac_nghiem/history_challenge.dart';
-import 'package:app_trac_nghiem/notification.dart';
-import 'package:app_trac_nghiem/result.dart';
-import 'package:app_trac_nghiem/search_friend.dart';
+import 'package:app_trac_nghiem/setting/history.dart';
+import 'package:app_trac_nghiem/setting/history_challenge.dart';
+import 'package:app_trac_nghiem/friend/notification.dart';
+import 'package:app_trac_nghiem/play/result.dart';
+import 'package:app_trac_nghiem/friend/search_friend.dart';
+import 'package:app_trac_nghiem/play/type_questions.dart';
 import 'package:app_trac_nghiem/test.dart';
-import 'package:app_trac_nghiem/type_questions.dart';
 import 'package:flutter/material.dart';
 import 'firstscreen.dart';
 import 'login.dart';
 import 'register.dart';
 import 'home.dart';
 import 'loading.dart';
-import 'play.dart';
+import 'play/play.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const Result(),
+        home: Play(),
         routes: {
           '/loading': (context) => const Loading(),
           '/firstscreen': (context) => const Firstscreen(),
@@ -41,6 +41,11 @@ class MyApp extends StatelessWidget {
           '/edit_info': (context) => const EditInfo(),
           '/forgot_password': (context) => const ForgotPassword(),
           '/detail': (context) => const Detail(),
+          '/type_question': (context) => const TypeQuestions(),
+          '/search_friend': (context) => const SearchFriend(),
+          '/notification': (context) => const NotificationScreen(),
+          '/history': (context) => const History(),
+          '/historychallenge': (context) => const HistoryChallenge(),
         });
   }
 }

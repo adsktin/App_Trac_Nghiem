@@ -1,6 +1,8 @@
+import 'dart:async';
+import 'package:app_trac_nghiem/firstscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
- // <-- Import statement
+// <-- Import statement
 
 class Loading extends StatefulWidget {
   const Loading({super.key});
@@ -11,20 +13,20 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
   @override
-  // void initState() {
-  //   super.initState();
-  //   delayTimer();
-  // }
+  void initState() {
+    super.initState();
+    delayTimer();
+  }
 
-  // delayTimer() async {
-  //   var duration = const Duration(seconds: 10);
-  //   return Timer(duration, firstscreen);
-  // }
+  delayTimer() async {
+    var duration = const Duration(seconds: 10);
+    return Timer(duration, firstscreen);
+  }
 
-  // firstscreen() {
-  //   Navigator.pushReplacement(
-  //       context, MaterialPageRoute(builder: (context) => const Firstscreen()));
-  // }
+  firstscreen() {
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => const Firstscreen()));
+  }
 
   @override
   Widget build(BuildContext context) {

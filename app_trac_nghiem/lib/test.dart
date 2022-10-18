@@ -1,86 +1,126 @@
+// // main.dart
+// import 'package:flutter/material.dart';
+// import 'dart:async';
+
+// class Test extends StatefulWidget {
+//   const Test({Key? key}) : super(key: key);
+
+//   @override
+//   State<Test> createState() => _TestState();
+// }
+
+// class _TestState extends State<Test> {
+//   static int _count = 10;
+//   bool _isSelected = false;
+//   @override
+//   void initState() {
+//     super.initState();
+//     Timer.periodic(const Duration(seconds: 1), (timer) {
+//       if (_count > 0) {
+//         setState(() {
+//           _count--;
+//         });
+//       }
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Kindacode.com'),
+//       ),
+//       body: Center(
+//         child: Column(
+//           children: [
+//             Text(
+//               _count.toString(),
+//               style: const TextStyle(fontSize: 30),
+//             ),
+//             ChoiceChip(
+//               selectedColor: Colors.amber,
+//               label: Text('A: Con Gà'),
+//               selected: _isSelected,
+//               onSelected: (newState) {
+//                 setState(() {
+//                   _isSelected = newState;
+//                 });
+//               },
+//               // avatar: Image.asset(
+//               //   'assets/images/yone_hoalinh.png',
+//               //   width: 100,
+//               //   height: 100,
+//               // ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-// <-- Import statement
 
 class Test extends StatefulWidget {
   const Test({super.key});
 
   @override
-  State<Test> createState() => _TestState();
+  TestState createState() => TestState();
 }
 
-class _TestState extends State<Test> {
-  @override
-  // void initState() {
-  //   super.initState();
-  //   delayTimer();
-  // }
+class TestState extends State<Test> with TickerProviderStateMixin {
+  int _selectedIndex = 1;
+  final List<String> _options = ['Woolha', 'Flutter', 'Dart'];
 
-  // delayTimer() async {
-  //   var duration = const Duration(seconds: 10);
-  //   return Timer(duration, firstscreen);
-  // }
+  Widget _buildChips() {
+    List<Widget> chips = [];
 
-  // firstscreen() {
-  //   Navigator.pushReplacement(
-  //       context, MaterialPageRoute(builder: (context) => const Firstscreen()));
-  // }
+    for (int i = 0; i < _options.length; i++) {
+      ChoiceChip choiceChip = ChoiceChip(
+        selected: _selectedIndex == i,
+        label: Text(_options[i], style: const TextStyle(color: Colors.white)),
+        avatar: const FlutterLogo(),
+        elevation: 10,
+        pressElevation: 5,
+        shadowColor: Colors.teal,
+        backgroundColor: Colors.black54,
+        selectedColor: Colors.blue,
+        onSelected: (bool selected) {
+          setState(() {
+            if (selected) {
+              _selectedIndex = i;
+            }
+          });
+        },
+      );
+
+      chips.add(Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: choiceChip));
+    }
+
+    return ListView(
+      // This next line does the trick.
+      scrollDirection: Axis.vertical,
+      children: chips,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 110, 255, 120),
-              Color.fromARGB(255, 104, 235, 255),
-            ],
-            begin: FractionalOffset(0.0, 0.0),
-            end: FractionalOffset(1.0, 0.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Woolha.com Flutter Tutorial'),
       ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Center(
-          child: Column(
-            children: [
-              DataTable(
-                  decoration: BoxDecoration(
-                    color: Colors.amber,
-                  ),
-                  columns: [
-                    DataColumn(
-                      label: Text('STT'),
-                    ),
-                    DataColumn(
-                      label: Text('Avatar'),
-                    ),
-                    DataColumn(
-                      label: Text('Họ Và Tên'),
-                    ),
-                  ],
-                  rows: [
-                    DataRow(
-                      cells: [
-                        DataCell(
-                          Text('1'),
-                        ),
-                        DataCell(
-                          CircleAvatar(
-                            radius: 40,
-                            backgroundImage:
-                                AssetImage('assets/images/yone_hoalinh.png'),
-                          ),
-                        ),
-                        DataCell(
-                          Text('Dương Nghĩa Hiệp'),
-                        ),
-                      ],
-                    ),
-                  ]),
-            ],
-          ),
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: 200,
+              child: _buildChips(),
+            ),
+          ],
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:app_trac_nghiem/color.dart';
 import 'package:flutter/material.dart';
 
 class EditInfo extends StatefulWidget {
@@ -25,6 +26,7 @@ class _EditInfoState extends State<EditInfo> {
       child: Scaffold(
         //backgroundColor: const Color.fromARGB(255, 188, 255, 240),
         appBar: AppBar(
+          leading: const BackButton(color: Colors.black),
           backgroundColor: const Color.fromARGB(255, 188, 255, 240),
           title: const Center(
             child: Text(
@@ -128,7 +130,7 @@ class _EditInfoState extends State<EditInfo> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.black,
-                          backgroundColor: Colors.lightGreenAccent,
+                          backgroundColor: btncolor,
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(25),

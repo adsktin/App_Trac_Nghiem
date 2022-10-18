@@ -14,6 +14,7 @@ class _HistoryState extends State<History> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const BackButton(color: Colors.black),
         title: const Center(
           child: Text(
             'Lịch sử',
