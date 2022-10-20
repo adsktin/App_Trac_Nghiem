@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 
 class Play extends StatefulWidget {
   const Play({super.key});
@@ -9,7 +10,12 @@ class Play extends StatefulWidget {
 }
 
 class _PlayState extends State<Play> {
-  static int _count = 10;
+  //
+  final int _duration = 10;
+  final CountDownController _controller = CountDownController();
+  //
+
+  //static int _count = 10;
   int _selectedIndex = 1;
   bool isSelected = false;
 
@@ -20,17 +26,17 @@ class _PlayState extends State<Play> {
     'D: Không Quan Tâm'
   ];
 
-  @override
-  void initState() {
-    super.initState();
-    Timer.periodic(const Duration(seconds: 1), (_) {
-      if (_count > 0) {
-        setState(() {
-          _count--;
-        });
-      }
-    });
-  }
+  //@override
+  // void initState() {
+  //   super.initState();
+  //   Timer.periodic(const Duration(seconds: 1), (_) {
+  //     if (_count > 0) {
+  //       setState(() {
+  //         _count--;
+  //       });
+  //     }
+  //   });
+  // }
 
   Widget _buildChips() {
     List<Widget> chips = [];
@@ -97,12 +103,68 @@ class _PlayState extends State<Play> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircleAvatar(
-                    radius: 40,
-                    child: Text(
-                      _count.toString(),
-                      style: const TextStyle(fontSize: 20),
-                    )),
+                // CircleAvatar(
+                //   radius: 40,
+                //   child: Text(
+                //     _count.toString(),
+                //     style: const TextStyle(fontSize: 20),
+                //   ),
+                // ),
+                CircularCountDownTimer(
+                  duration: _duration,
+                  // Countdown initial elapsed Duration in Seconds.
+                  initialDuration: 0,
+                  // Controls (i.e Start, Pause, Resume, Restart) the Countdown Timer.
+                  controller: _controller,
+                  // Width of the Countdown Widget.
+                  width: 100,
+                  // Height of the Countdown Widget.
+                  height: 100,
+                  // Ring Color for Countdown Widget.
+                  ringColor: Colors.grey[300]!,
+                  // Ring Gradient for Countdown Widget.
+                  ringGradient: null,
+                  // Filling Color for Countdown Widget.
+                  fillColor: Colors.purpleAccent[100]!,
+                  // Filling Gradient for Countdown Widget.
+                  fillGradient: null,
+                  // Background Color for Countdown Widget.
+                  backgroundColor: Colors.purple[500],
+                  // Background Gradient for Countdown Widget.
+                  backgroundGradient: null,
+                  // Border Thickness of the Countdown Ring.
+                  strokeWidth: 5.0,
+                  // Begin and end contours with a flat edge and no extension.
+                  strokeCap: StrokeCap.round,
+                  // Text Style for Countdown Text.
+                  textStyle: const TextStyle(
+                    fontSize: 30.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  // Handles Countdown Timer (true for Reverse Countdown (max to 0), false for Forward Countdown (0 to max)).
+                  isReverse: false,
+                  // Handles Animation Direction (true for Reverse Animation, false for Forward Animation).
+                  isReverseAnimation: true,
+                  // Handles visibility of the Countdown Text.
+                  isTimerTextShown: true,
+                  // Handles the timer start.
+                  autoStart: true,
+                  onStart: () {
+                    // Here, do whatever you want
+                    // debugPrint('Countdown Started');
+                  },
+                  // This Callback will execute when the Countdown Ends.
+                  onComplete: () {
+                    // Here, do whatever you want
+                    //debugPrint('Countdown Ended');
+                  },
+                  // This Callback will execute when the Countdown Changes.
+                  onChange: (String timeStamp) {
+                    // Here, do whatever you want
+                    //debugPrint('Countdown Changed $timeStamp');
+                  },
+                ),
               ],
             ),
           ),

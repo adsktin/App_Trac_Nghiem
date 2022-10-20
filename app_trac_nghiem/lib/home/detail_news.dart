@@ -35,13 +35,13 @@ class _DetailState extends State<Detail> {
               width: 350,
               height: 300,
               color: Colors.blue,
-              child: Image.asset('assets/images/yone_hoalinh.png',
-                  fit: BoxFit.cover),
+              child: Image.asset('assets/images/camera_iphone14.jpg',
+                  fit: BoxFit.fill),
             ),
             const Padding(
               padding: EdgeInsets.fromLTRB(20, 20, 0, 0),
               child: Text(
-                "Android 14",
+                "Iphone 14",
                 //textAlign: TextAlign.left,
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
@@ -54,7 +54,7 @@ class _DetailState extends State<Detail> {
                 padding: EdgeInsets.all(20),
                 child: Text(
                   maxLines: 20,
-                  "Android 14 will have native support to satellite connection. Android 14 will have native support to satellite connection.Android 14 will have native support to satellite connection.Android 14 will have native support to satellite connection.Android 14 will have native support to satellite connection.Android 14 will have native support to satellite connection.Android 14 will have native support to satellite connection.Android 14 will have native support to satellite connection.Android 14 will have native support to satellite connection. Android 14 will have native support to satellite connection.",
+                  "Nguồn tin từ nhà phân tích Ming-Chi Kuo cho biết bộ đôi iPhone 14 Pro và 14 Pro Max sẽ được trang bị hệ thống camera hoàn toàn mới với độ phân giải 48 MP. Điều này sẽ khiến cho kích thước tổng thể của cụm camera to hơn phiên bản tiền nhiệm. Theo đó, kích thước camera trên iPhone 14 Pro được cho là sẽ tăng thêm khoảng 5% ở mỗi chiều so với iPhone 13 Pro. Cụ thể, chiều rộng sẽ tăng từ 35,01 mm lên 36,73 mm, chiều cao từ 36,24 mm lên 38,21 mm và độ dày từ 3,60 mm lên 4,17 mm. Cụm camera mới này được cho là sẽ chỉ xuất hiện trên những phiên bản iPhone Pro. Hệ thống này hứa hẹn sẽ cung cấp cho máy nhiều tính năng mới như quay video ở độ phân giải 8K, hỗ trợ thiết bị AR/VR",
                   textAlign: TextAlign.left,
                   style: TextStyle(fontSize: 20),
                 ),

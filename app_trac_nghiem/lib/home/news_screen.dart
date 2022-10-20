@@ -14,17 +14,17 @@ class _NewsState extends State<News> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 110, 255, 120),
-              Color.fromARGB(255, 104, 235, 255),
-            ],
-            begin: FractionalOffset(0.0, 0.0),
-            end: FractionalOffset(1.0, 0.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp),
-      ),
+      // decoration: const BoxDecoration(
+      //   gradient: LinearGradient(
+      //       colors: [
+      //         Color.fromARGB(255, 110, 255, 120),
+      //         Color.fromARGB(255, 104, 235, 255),
+      //       ],
+      //       begin: FractionalOffset(0.0, 0.0),
+      //       end: FractionalOffset(1.0, 0.0),
+      //       stops: [0.0, 1.0],
+      //       tileMode: TileMode.clamp),
+      // ),
       child: ListView(children: <Widget>[
         Column(children: [
           const Padding(
@@ -55,7 +55,7 @@ class _NewsState extends State<News> {
                         now.month.toString() +
                         " Năm " +
                         now.year.toString(),
-                    style: TextStyle()),
+                    style: const TextStyle()),
               ],
             ),
           ),
@@ -88,10 +88,18 @@ class _NewsState extends State<News> {
                                 Container(
                                   width: 350,
                                   height: 300,
-                                  color: Colors.blue,
+                                  color: Colors.black,
+                                  // decoration: const BoxDecoration(
+                                  //   color: Colors.blue,
+                                  //   borderRadius: BorderRadius.all(
+                                  //     Radius.circular(10),
+                                  //   ),
+                                  // ),
                                   child: Image.asset(
-                                      'assets/images/yone_hoalinh.png',
-                                      fit: BoxFit.cover),
+                                      'assets/images/camera_iphone14.jpg',
+                                      //width: 300,
+                                      //height: 300,
+                                      fit: BoxFit.fill),
                                 ),
                                 Positioned(
                                   top: 250,
@@ -109,7 +117,7 @@ class _NewsState extends State<News> {
                                           EdgeInsets.fromLTRB(20, 20, 10, 10),
                                       child: Text(
                                         maxLines: 2,
-                                        "Android 14 will have native support to satellite connection.",
+                                        "Camera trên iPhone 14 Pro sẽ có nâng cấp lớn",
                                         textAlign: TextAlign.left,
                                         style: TextStyle(fontSize: 20),
                                       ),
