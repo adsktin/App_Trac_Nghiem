@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Play(),
+        home: Home(),
         routes: {
           '/loading': (context) => const Loading(),
           '/firstscreen': (context) => const Firstscreen(),
