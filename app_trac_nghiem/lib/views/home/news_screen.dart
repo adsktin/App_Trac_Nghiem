@@ -1,4 +1,4 @@
-import 'package:app_trac_nghiem/home/detail_news.dart';
+import 'package:app_trac_nghiem/views/home/detail_news.dart';
 import 'package:flutter/material.dart';
 
 class News extends StatefulWidget {

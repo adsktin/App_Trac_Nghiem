@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:app_trac_nghiem/firstscreen.dart';
+import 'package:app_trac_nghiem/views/firstscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 // <-- Import statement
