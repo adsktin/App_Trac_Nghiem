@@ -1,4 +1,4 @@
-import 'package:app_trac_nghiem/color.dart';
+import 'package:app_trac_nghiem/views/color.dart';
 import 'package:flutter/material.dart';
 
 class Friend extends StatefulWidget {
