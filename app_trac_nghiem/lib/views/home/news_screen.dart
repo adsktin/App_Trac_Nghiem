@@ -1,14 +1,23 @@
+import 'package:app_trac_nghiem/database/services/news_service.dart';
 import 'package:app_trac_nghiem/views/home/detail_news.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:app_trac_nghiem/models/news_model.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class News extends StatefulWidget {
-  const News({super.key});
+class NewsScreen extends StatefulWidget {
+  const NewsScreen({super.key});
 
   @override
-  State<News> createState() => _NewsState();
+  State<NewsScreen> createState() => _NewsState();
 }
 
-class _NewsState extends State<News> {
+class _NewsState extends State<NewsScreen> {
+  Future<List<News>> _fecthNews() async {
+    var data = NewsService.fetchNews();
+    return data;
+  }
+
   DateTime now = DateTime.now();
 
   @override
@@ -62,77 +71,91 @@ class _NewsState extends State<News> {
         ]),
         SingleChildScrollView(
           child: Center(
-            child: ListView.builder(
-                physics: const ScrollPhysics(),
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: 10,
-                itemBuilder: (BuildContext context, int index) {
-                  return Column(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (_) {
-                            return const Detail();
-                          }));
-                        },
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
-                            child: Stack(
-                              clipBehavior: Clip.none,
-                              alignment: Alignment
-                                  .center, // Center children in the Stack
+              child: FutureBuilder<List<News>>(
+                  future: _fecthNews(),
+                  builder: ((context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasData) {
+                      return ListView.builder(
+                          physics: const ScrollPhysics(),
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          itemCount: snapshot.data.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Column(
                               children: [
-                                Container(
-                                  width: 350,
-                                  height: 300,
-                                  color: Colors.black,
-                                  // decoration: const BoxDecoration(
-                                  //   color: Colors.blue,
-                                  //   borderRadius: BorderRadius.all(
-                                  //     Radius.circular(10),
-                                  //   ),
-                                  // ),
-                                  child: Image.asset(
-                                      'assets/images/camera_iphone14.jpg',
-                                      //width: 300,
-                                      //height: 300,
-                                      fit: BoxFit.fill),
-                                ),
-                                Positioned(
-                                  top: 250,
-                                  left: 20,
-                                  right: 20,
-                                  bottom: -40,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                            255, 243, 255, 140),
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    child: const Padding(
-                                      padding:
-                                          EdgeInsets.fromLTRB(20, 20, 10, 10),
-                                      child: Text(
-                                        maxLines: 2,
-                                        "Camera trên iPhone 14 Pro sẽ có nâng cấp lớn",
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(fontSize: 20),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (_) {
+                                      return const Detail();
+                                    }));
+                                  },
+                                  child: Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          0, 30, 0, 42),
+                                      child: Stack(
+                                        clipBehavior: Clip.none,
+                                        alignment: Alignment
+                                            .center, // Center children in the Stack
+                                        children: [
+                                          Container(
+                                              width: 350,
+                                              height: 300,
+                                              color: Colors.black,
+                                              // decoration: const BoxDecoration(
+                                              //   color: Colors.blue,
+                                              //   borderRadius: BorderRadius.all(
+                                              //     Radius.circular(10),
+                                              //   ),
+                                              // ),
+                                              child: Image.network(
+                                                '${snapshot.data[index].image}',
+                                                fit: BoxFit.fill,
+                                              )),
+                                          Positioned(
+                                            top: 250,
+                                            left: 20,
+                                            right: 20,
+                                            bottom: -40,
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: const Color.fromARGB(
+                                                      255, 243, 255, 140),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          20)),
+                                              child: Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    20, 20, 10, 10),
+                                                child: AutoSizeText(
+                                                  "${snapshot.data[index].title}",
+                                                  maxLines: 1,
+                                                  maxFontSize: 30,
+                                                  minFontSize: 10,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  style: GoogleFonts.inter(
+                                                    fontSize: 30,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
                               ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  );
-                }),
-          ),
+                            );
+                          });
+                    } else {
+                      return CircularProgressIndicator();
+                    }
+                  }))),
         ),
       ]),
     );

@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     // home
-    const News(),
+    const NewsScreen(),
     // friend
     const Friend(),
     //play
