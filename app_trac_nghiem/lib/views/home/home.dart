@@ -1,8 +1,8 @@
-import 'package:app_trac_nghiem/friend/friend_screen.dart';
-import 'package:app_trac_nghiem/home/news_screen.dart';
-import 'package:app_trac_nghiem/rank/rank_screen.dart';
-import 'package:app_trac_nghiem/setting/setting_screen.dart';
-import 'package:app_trac_nghiem/play/type_questions.dart';
+import 'package:app_trac_nghiem/views/friend/friend_screen.dart';
+import 'package:app_trac_nghiem/views/home/news_screen.dart';
+import 'package:app_trac_nghiem/views/rank/rank_screen.dart';
+import 'package:app_trac_nghiem/views/setting/setting_screen.dart';
+import 'package:app_trac_nghiem/views/play/type_questions.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {

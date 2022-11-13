@@ -1,5 +1,7 @@
-import 'package:app_trac_nghiem/color.dart';
+import 'dart:convert';
+import 'package:app_trac_nghiem/views/color.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -8,9 +10,36 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 
-bool? isChecked = false;
-
 class _LoginState extends State<Login> {
+  bool isChecked = false;
+  bool hidePassword = false;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  void login(String email, String password) async {
+    try {
+      Response response =
+          // await post(Uri.parse('https://reqres.in/api/login'),
+          await post(Uri.parse('http://10.0.0.2:8000/api/login'), body: {
+        'email': email,
+        'password': password,
+      }, headers: {
+        // "Content-Type": "application/json; charset=utf-8",
+        "Accept": "*/*",
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "keep-alive"
+      });
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body.toString());
+        // print(data);
+        Navigator.of(context, rootNavigator: true).pushNamed('/home');
+      } else {
+        print('failed');
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -63,6 +92,7 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(10),
                         color: textfield),
                     child: TextField(
+                      controller: emailController,
                       decoration: InputDecoration(
                         hintText: 'example@gmai.com',
                         // prefixIcon: const Padding(
@@ -94,7 +124,8 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(10),
                         color: textfield),
                     child: TextField(
-                      obscureText: true,
+                      controller: passwordController,
+                      obscureText: hidePassword,
                       decoration: InputDecoration(
                         hintText: '...',
                         icon: const Padding(
@@ -103,6 +134,19 @@ class _LoginState extends State<Login> {
                         ),
                         filled: true,
                         fillColor: textfield,
+                        suffixIcon: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: IconButton(
+                            icon: Icon(hidePassword
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                            onPressed: () {
+                              setState(() {
+                                hidePassword = !hidePassword;
+                              });
+                            },
+                          ),
+                        ),
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10)),
@@ -121,7 +165,7 @@ class _LoginState extends State<Login> {
                               value: isChecked,
                               onChanged: (value) {
                                 setState(() {
-                                  isChecked = value;
+                                  isChecked = value!;
                                 });
                               },
                             ),
@@ -144,8 +188,10 @@ class _LoginState extends State<Login> {
                               ),
                             )),
                         onPressed: () {
-                          Navigator.of(context, rootNavigator: true)
-                              .pushNamed('/home');
+                          login(emailController.text.toString(),
+                              passwordController.text.toString());
+                          // Navigator.of(context, rootNavigator: true)
+                          //     .pushNamed('/home');
                         },
                         child: const Text(
                           'Đăng Nhập',

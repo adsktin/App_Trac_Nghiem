@@ -1,4 +1,4 @@
-import 'package:app_trac_nghiem/color.dart';
+import 'package:app_trac_nghiem/views/color.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter_signin_button/flutter_signin_button.dart';
 //import 'package:flutter_signin_button/button_view.dart';
