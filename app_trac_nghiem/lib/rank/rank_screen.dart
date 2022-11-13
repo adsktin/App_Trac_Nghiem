@@ -11,17 +11,17 @@ class _RankState extends State<Rank> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 110, 255, 120),
-              Color.fromARGB(255, 104, 235, 255),
-            ],
-            begin: FractionalOffset(0.0, 0.0),
-            end: FractionalOffset(1.0, 0.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp),
-      ),
+      // decoration: const BoxDecoration(
+      //   gradient: LinearGradient(
+      //       colors: [
+      //         Color.fromARGB(255, 110, 255, 120),
+      //         Color.fromARGB(255, 104, 235, 255),
+      //       ],
+      //       begin: FractionalOffset(0.0, 0.0),
+      //       end: FractionalOffset(1.0, 0.0),
+      //       stops: [0.0, 1.0],
+      //       tileMode: TileMode.clamp),
+      // ),
       child: ListView(
         children: [
           Column(

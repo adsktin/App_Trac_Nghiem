@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Friend(),
+        home: Home(),
         routes: {
           '/loading': (context) => const Loading(),
           '/firstscreen': (context) => const Firstscreen(),
