@@ -30,15 +30,15 @@ class News {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['image'] = this.image;
-    data['title'] = this.title;
-    data['decription'] = this.decription;
-    data['status'] = this.status;
-    data['deleted_at'] = this.deletedAt;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['image'] = image;
+    data['title'] = title;
+    data['decription'] = decription;
+    data['status'] = status;
+    data['deleted_at'] = deletedAt;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
     return data;
   }
 }
