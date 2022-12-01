@@ -1,35 +1,42 @@
-// class User {
-//   int? id;
-//   String? name;
-//   String? email;
-//   String? password;
-//   bool? status;
-//   User({this.id, this.email, this.name, this.password, this.status});
-//   factory User.fromJson(Map<String, dynamic> json) {
-//     if (json == null) return User();
-//     return User(
-//       id: json['id'],
-//       name: json['name'],
-//       email: json['email'],
-//       password: json['password'],
-//       status: json['status'],
-//     );
-//   }
-//   static List<User>? fromJsonList(List list) {
-//     if (list == null) return null;
-//     return list.map((item) => User.fromJson(item)).toList();
-//   }
+class User {
+  int? id;
+  String? name;
+  String? avatar;
+  String? email;
+  String? phone;
+  String? dateOfBirth;
+  int? totalscore;
 
-//   static List<Map<String, dynamic>>? toJsonList(List<User> list) {
-//     if (list == null) return null;
-//     return list.map((item) => item.toJson()).toList();
-//   }
+  User({
+    this.id,
+    this.name,
+    this.avatar,
+    this.email,
+    this.phone,
+    this.dateOfBirth,
+    this.totalscore,
+  });
 
-//   Map<String, dynamic> toJson() {
-//     Map<String, dynamic> map = {
-//       'name': name,
-//       'email': email,
-//     };
-//     return map;
-//   }
-// }
+  User.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    avatar = json['avatar'];
+    email = json['email'];
+    phone = json['phone'];
+    dateOfBirth = json['date_of_birth'];
+    totalscore = json['totalscore'];
+   
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['avatar'] = avatar;
+    data['email'] = email;
+    data['phone'] = phone;
+    data['date_of_birth'] = dateOfBirth;
+    data['totalscore'] = totalscore;
+    return data;
+  }
+}

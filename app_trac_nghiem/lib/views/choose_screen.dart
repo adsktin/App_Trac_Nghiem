@@ -1,5 +1,8 @@
+import 'package:app_trac_nghiem/views/auth/login_screen.dart';
+import 'package:app_trac_nghiem/views/auth/register_screen.dart';
 import 'package:app_trac_nghiem/views/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 //import 'package:flutter_signin_button/flutter_signin_button.dart';
 //import 'package:flutter_signin_button/button_view.dart';
 
@@ -56,8 +59,10 @@ class _FirstscreenState extends State<Firstscreen> {
                           ),
                         )),
                     onPressed: () {
-                      Navigator.of(context, rootNavigator: true)
-                          .pushNamed('/login');
+                      // Get.to(const LoginScreen());
+                      Get.to(() => const LoginScreen(
+                            isScreen: false,
+                          ));
                     },
                     child: const Text(
                       'Đăng Nhập',
@@ -81,8 +86,8 @@ class _FirstscreenState extends State<Firstscreen> {
                           ),
                         )),
                     onPressed: () {
-                      Navigator.of(context, rootNavigator: true)
-                          .pushNamed('/register');
+                      // Get.to(const RegisterScreen());
+                      Get.to(() => const RegisterScreen());
                     },
                     child: const Text(
                       'Đăng Ký',

@@ -1,8 +1,9 @@
-import 'package:app_trac_nghiem/database/services/news_service.dart';
+import 'package:app_trac_nghiem/services/news_service.dart';
 import 'package:app_trac_nghiem/views/home/detail_news.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:app_trac_nghiem/models/news_model.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NewsScreen extends StatefulWidget {
@@ -114,25 +115,26 @@ class _NewsState extends State<NewsScreen> {
                                                 fit: BoxFit.fill,
                                               )),
                                           Positioned(
-                                            top: 250,
-                                            left: 20,
-                                            right: 20,
-                                            bottom: -40,
+                                            top: 230,
+                                            left: 0,
+                                            right: 0,
+                                            bottom: -20,
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                  color: const Color.fromARGB(
-                                                      255, 243, 255, 140),
+                                                  color: Colors.white24,
                                                   borderRadius:
                                                       BorderRadius.circular(
-                                                          20)),
+                                                          30)),
                                               child: Padding(
-                                                padding: EdgeInsets.fromLTRB(
-                                                    20, 20, 10, 10),
+                                                padding:
+                                                    const EdgeInsets.fromLTRB(
+                                                        20, 20, 10, 10),
                                                 child: AutoSizeText(
                                                   "${snapshot.data[index].title}",
                                                   maxLines: 1,
                                                   maxFontSize: 30,
                                                   minFontSize: 10,
+                                                  textAlign: TextAlign.center,
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   style: GoogleFonts.inter(
@@ -153,7 +155,10 @@ class _NewsState extends State<NewsScreen> {
                             );
                           });
                     } else {
-                      return CircularProgressIndicator();
+                      return const Padding(
+                        padding: EdgeInsets.only(top: 250),
+                        child: CircularProgressIndicator(),
+                      );
                     }
                   }))),
         ),

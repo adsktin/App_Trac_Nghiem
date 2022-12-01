@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:app_trac_nghiem/views/firstscreen.dart';
+import 'package:app_trac_nghiem/views/choose_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 // <-- Import statement
@@ -51,12 +51,12 @@ class _LoadingState extends State<Loading> {
                 padding: const EdgeInsets.only(top: 150),
                 child: Lottie.asset('assets/images/monkey_load.json'),
               ),
-              const Text(
-                'Loading...',
-                style: TextStyle(
-                  fontSize: 40,
-                ),
-              ),
+              // const Text(
+              //   'Loading...',
+              //   style: TextStyle(
+              //     fontSize: 40,
+              //   ),
+              // ),
             ],
           ),
         ),
