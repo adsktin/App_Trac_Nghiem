@@ -15,8 +15,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  var _emailTextController = TextEditingController(text: "");
-  var _passwordTextController = TextEditingController(text: "");
+  final _emailTextController = TextEditingController(text: "");
+  final _passwordTextController = TextEditingController(text: "");
   final AuthController controller = Get.put(AuthController());
   final _formKey = GlobalKey<FormState>();
   bool isObscureText = true;
@@ -175,6 +175,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       Get.defaultDialog(title: "Thông báo!", middleText: error);
                     } else {
                       Get.to(() => const Home());
+                      Get.defaultDialog(
+                          title: "Thông báo!",
+                          middleText: 'Đăng nhập thành công!');   
+                                              
                     }
                   } else {}
                 },

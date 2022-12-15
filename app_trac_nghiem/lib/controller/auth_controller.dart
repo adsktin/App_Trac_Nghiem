@@ -1,5 +1,6 @@
 import 'package:app_trac_nghiem/models/user_model.dart';
 import 'package:app_trac_nghiem/services/auth_services.dart';
+import 'package:app_trac_nghiem/views/choose_screen.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -60,6 +61,8 @@ class AuthController extends GetxController {
       final logout = await AuthService.logout();
       if (logout) {
         logoutProcess(true);
+        final prefs = await SharedPreferences.getInstance();
+         //prefs.remove();
         return logout;
       } else {
         return logout;

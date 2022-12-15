@@ -39,8 +39,10 @@ class _NewsState extends State<NewsScreen> {
         Column(children: [
           const Padding(
             padding: EdgeInsets.all(8.0),
-            child: Text(
+            child: AutoSizeText(
               'Tin Tức Mới',
+              maxFontSize: 32,
+              minFontSize: 25,
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
@@ -86,10 +88,9 @@ class _NewsState extends State<NewsScreen> {
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    Navigator.push(context,
-                                        MaterialPageRoute(builder: (_) {
-                                      return const Detail();
-                                    }));
+                                    Get.to(() => Detail(
+                                          id: index,
+                                        ));
                                   },
                                   child: Center(
                                     child: Padding(
@@ -101,19 +102,20 @@ class _NewsState extends State<NewsScreen> {
                                             .center, // Center children in the Stack
                                         children: [
                                           Container(
-                                              width: 350,
-                                              height: 300,
-                                              color: Colors.black,
-                                              // decoration: const BoxDecoration(
-                                              //   color: Colors.blue,
-                                              //   borderRadius: BorderRadius.all(
-                                              //     Radius.circular(10),
-                                              //   ),
-                                              // ),
-                                              child: Image.network(
-                                                '${snapshot.data[index].image}',
-                                                fit: BoxFit.fill,
-                                              )),
+                                            width: 350,
+                                            height: 300,
+                                            color: Colors.black,
+                                            // decoration: const BoxDecoration(
+                                            //   color: Colors.blue,
+                                            //   borderRadius: BorderRadius.all(
+                                            //     Radius.circular(10),
+                                            //   ),
+                                            // ),
+                                            child: Image.network(
+                                              '${snapshot.data[index].image}',
+                                              fit: BoxFit.fill,
+                                            ),
+                                          ),
                                           Positioned(
                                             top: 230,
                                             left: 0,

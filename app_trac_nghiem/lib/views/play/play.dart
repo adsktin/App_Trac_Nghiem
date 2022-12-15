@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
@@ -46,10 +47,12 @@ class _PlayState extends State<Play> {
         selected: _selectedIndex == i,
         label: SizedBox(
           width: 300,
-          height: 35,
+          height: 30,
           child: Row(
             children: [
-              Text(_options[i],
+              AutoSizeText(_options[i],
+                  maxFontSize: 20,
+                  minFontSize: 10,
                   // textAlign: TextAlign.left,
                   style: const TextStyle(
                     color: Colors.white,
@@ -74,8 +77,7 @@ class _PlayState extends State<Play> {
       );
 
       chips.add(Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10),
-          child: choiceChip));
+          padding: const EdgeInsets.symmetric(vertical: 5), child: choiceChip));
     }
 
     return ListView(
@@ -88,28 +90,26 @@ class _PlayState extends State<Play> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: BackButton(
-            onPressed: () {
-              showAlertDialog(context);
-            },
-            color: Colors.black),
-        backgroundColor: Colors.white,
-      ),
+      // appBar: AppBar(
+      //   leading: BackButton(
+      //       onPressed: () {
+      //         showAlertDialog(context);
+      //       },
+      //       color: Colors.black),
+      //   backgroundColor: Colors.white,
+      // ),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 35, top: 10),
+            padding: const EdgeInsets.only(bottom: 10, top: 30, right: 30),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // CircleAvatar(
-                //   radius: 40,
-                //   child: Text(
-                //     _count.toString(),
-                //     style: const TextStyle(fontSize: 20),
-                //   ),
-                // ),
+                BackButton(
+                    onPressed: () {
+                      showAlertDialog(context);
+                    },
+                    color: Colors.black),
                 CircularCountDownTimer(
                   duration: _duration,
                   // Countdown initial elapsed Duration in Seconds.
@@ -117,9 +117,9 @@ class _PlayState extends State<Play> {
                   // Controls (i.e Start, Pause, Resume, Restart) the Countdown Timer.
                   controller: _controller,
                   // Width of the Countdown Widget.
-                  width: 100,
+                  width: 50,
                   // Height of the Countdown Widget.
-                  height: 100,
+                  height: 50,
                   // Ring Color for Countdown Widget.
                   ringColor: Colors.grey[300]!,
                   // Ring Gradient for Countdown Widget.
@@ -138,12 +138,12 @@ class _PlayState extends State<Play> {
                   strokeCap: StrokeCap.round,
                   // Text Style for Countdown Text.
                   textStyle: const TextStyle(
-                    fontSize: 30.0,
+                    fontSize: 20.0,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                   // Handles Countdown Timer (true for Reverse Countdown (max to 0), false for Forward Countdown (0 to max)).
-                  isReverse: false,
+                  isReverse: true,
                   // Handles Animation Direction (true for Reverse Animation, false for Forward Animation).
                   isReverseAnimation: true,
                   // Handles visibility of the Countdown Text.
@@ -173,13 +173,17 @@ class _PlayState extends State<Play> {
             alignment: Alignment.center,
             children: [
               Container(
-                height: 300,
+                height: 220,
                 color: const Color.fromARGB(255, 0, 48, 87),
                 child: const Center(
                   child: Padding(
                     padding: EdgeInsets.all(20),
-                    child: Text(
+                    child: AutoSizeText(
                       'Gà có trước hay trứng có trước?',
+                      maxFontSize: 30,
+                      minFontSize: 20,
+                      textAlign: TextAlign.justify,
+                      maxLines: 4,
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -193,7 +197,7 @@ class _PlayState extends State<Play> {
                 top: -30,
                 left: 100,
                 right: 100,
-                bottom: 260,
+                bottom: 180,
                 child: Container(
                   width: 50,
                   decoration: BoxDecoration(
@@ -264,13 +268,13 @@ class _PlayState extends State<Play> {
             child: _buildChips(),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(70, 20, 70, 20),
+            padding: const EdgeInsets.fromLTRB(70, 10, 70, 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  width: 70,
-                  height: 70,
+                  width: 50,
+                  height: 50,
                   decoration: const BoxDecoration(
                       color: Colors.amberAccent, shape: BoxShape.circle),
                   child: IconButton(
@@ -283,8 +287,8 @@ class _PlayState extends State<Play> {
                   ),
                 ),
                 Container(
-                  width: 70,
-                  height: 70,
+                  width: 50,
+                  height: 50,
                   decoration: const BoxDecoration(
                       color: Colors.amberAccent, shape: BoxShape.circle),
                   child: IconButton(
@@ -297,8 +301,8 @@ class _PlayState extends State<Play> {
                   ),
                 ),
                 Container(
-                  width: 70,
-                  height: 70,
+                  width: 50,
+                  height: 50,
                   decoration: const BoxDecoration(
                       color: Colors.amberAccent, shape: BoxShape.circle),
                   child: IconButton(

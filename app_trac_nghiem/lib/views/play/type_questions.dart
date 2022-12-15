@@ -1,4 +1,7 @@
+import 'package:app_trac_nghiem/views/play/play.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TypeQuestions extends StatefulWidget {
   const TypeQuestions({super.key});
@@ -95,14 +98,15 @@ showAlertDialog(BuildContext context) {
     },
   );
   Widget continueButton = TextButton(
-    child: const Text(
+    child: Text(
       "Chơi",
       style: TextStyle(color: Colors.green),
     ),
     onPressed: () {
       //Navigator.push(
       //context, MaterialPageRoute(builder: (context) => Page1()));
-      Navigator.of(context, rootNavigator: true).pushNamed('/play');
+      // Navigator.of(context, rootNavigator: true).pushNamed('/play');
+      Get.to(() => Play());
     },
   );
 
