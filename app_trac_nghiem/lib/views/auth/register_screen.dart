@@ -1,18 +1,25 @@
+import 'package:app_trac_nghiem/controller/auth_controller.dart';
 import 'package:app_trac_nghiem/views/auth/login_screen.dart';
 import 'package:app_trac_nghiem/views/color.dart';
+import 'package:app_trac_nghiem/widgets/validate.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
-
+  static String route = '/register';
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
+  final formKey = GlobalKey<FormState>();
+  final AuthController controller = Get.put(AuthController());
   bool isObscureText = true;
   bool isObscureTextconfirm = true;
   @override
@@ -24,6 +31,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Padding(
           padding: const EdgeInsets.all(15),
           child: Form(
+            key: formKey,
             child: Container(
               color: Colors.transparent,
               child: Column(
@@ -34,8 +42,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     style: TextStyle(fontSize: 15),
                   ),
                   TextFormField(
-                    controller: emailController,
-                    keyboardType: TextInputType.emailAddress,
+                    controller: _nameController,
+                    validator: (val) {
+                      if (val!.trim().isEmpty) {
+                        return 'Họ và tên không được bỏ trống!';
+                      } else if (!val.isValidName) {
+                        return 'Họ và tên không hợp lệ!';
+                      }
+                      return null;
+                    },
+                    keyboardType: TextInputType.text,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: textfield,
@@ -56,6 +72,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ),
                       errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: const BorderSide(
+                          color: Colors.red,
+                          width: 2,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                         borderSide: const BorderSide(
                           color: Colors.red,
@@ -72,7 +95,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     style: TextStyle(fontSize: 15),
                   ),
                   TextFormField(
-                    controller: emailController,
+                    controller: _emailController,
+                    validator: (val) {
+                      if (val!.trim().isEmpty) {
+                        return 'Email không được bỏ trống!';
+                      } else if (!val.isValidEmail) {
+                        return 'Email không hợp lệ!';
+                      }
+                      return null;
+                    },
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       filled: true,
@@ -100,6 +131,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           width: 2,
                         ),
                       ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: const BorderSide(
+                          color: Colors.red,
+                          width: 2,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -110,7 +148,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     style: TextStyle(fontSize: 15),
                   ),
                   TextFormField(
-                    controller: passwordController,
+                    controller: _passwordController,
+                    validator: (val) {
+                      if (val!.trim().isEmpty) {
+                        return 'Mật khẩu không được bỏ trống!';
+                      }
+                      return null;
+                    },
                     obscureText: isObscureText,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
@@ -148,6 +192,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           width: 2,
                         ),
                       ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: const BorderSide(
+                          color: Colors.red,
+                          width: 2,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -158,7 +209,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     style: TextStyle(fontSize: 15),
                   ),
                   TextFormField(
-                    controller: passwordController,
+                    controller: _confirmPasswordController,
+                    validator: (val) {
+                      if (val!.trim().isEmpty) {
+                        return 'Xác nhận mật khẩu không được bỏ trống!';
+                      }
+                      return null;
+                    },
                     obscureText: isObscureTextconfirm,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
@@ -196,6 +253,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           width: 2,
                         ),
                       ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: const BorderSide(
+                          color: Colors.red,
+                          width: 2,
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -212,7 +276,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   backgroundColor: btncolor,
                   shape: const StadiumBorder(),
                 ),
-                onPressed: () {},
+                onPressed: () async {
+                  if (formKey.currentState!.validate()) {
+                    String message = await controller.register(
+                        _nameController.text,
+                        _emailController.text,
+                        _passwordController.text);
+                    if (message != "") {
+                      Get.defaultDialog(
+                          title: "Thông báo!", middleText: message);
+                    } else {
+                      Get.to(() => const LoginScreen(isScreen: false));
+                    }
+                  }
+                },
                 child: const Text(
                   'Đăng Ký',
                   style: TextStyle(fontSize: 25, color: Colors.black),

@@ -6,14 +6,14 @@ import 'package:get/get.dart';
 //import 'package:flutter_signin_button/flutter_signin_button.dart';
 //import 'package:flutter_signin_button/button_view.dart';
 
-class Firstscreen extends StatefulWidget {
-  const Firstscreen({super.key});
+class ChooseScreen extends StatefulWidget {
+  const ChooseScreen({super.key, required bool isScreen});
 
   @override
-  State<Firstscreen> createState() => _FirstscreenState();
+  State<ChooseScreen> createState() => _ChooseScreenState();
 }
 
-class _FirstscreenState extends State<Firstscreen> {
+class _ChooseScreenState extends State<ChooseScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(

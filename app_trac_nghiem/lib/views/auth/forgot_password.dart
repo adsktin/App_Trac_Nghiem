@@ -65,6 +65,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           width: 2,
                         ),
                       ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: const BorderSide(
+                          color: Colors.red,
+                          width: 2,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(

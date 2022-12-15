@@ -20,12 +20,16 @@ class _LoadingState extends State<Loading> {
 
   delayTimer() async {
     var duration = const Duration(seconds: 10);
-    return Timer(duration, firstscreen);
+    return Timer(duration, choosescreen);
   }
 
-  firstscreen() {
+  choosescreen() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const Firstscreen()));
+        context,
+        MaterialPageRoute(
+            builder: (context) => const ChooseScreen(
+                  isScreen: false,
+                )));
   }
 
   @override
