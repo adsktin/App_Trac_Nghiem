@@ -1,3 +1,6 @@
+import 'package:app_trac_nghiem/controller/game_controller.dart';
+import 'package:app_trac_nghiem/controller/questions_controller.dart';
+import 'package:app_trac_nghiem/controller/types_controller.dart';
 import 'package:app_trac_nghiem/views/play/play.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +14,12 @@ class TypeQuestions extends StatefulWidget {
 }
 
 class _TypeQuestionsState extends State<TypeQuestions> {
+  @override
+  void initState() {
+    super.initState();
+    TypesController.fetchDataTypes();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,17 +47,20 @@ class _TypeQuestionsState extends State<TypeQuestions> {
       body: Center(
         child: ListView(
           children: [
-            SingleChildScrollView(
-              child: ListView.builder(
+            SingleChildScrollView(child: Obx((() {
+              if (TypesController.isLoading.value) {
+                return ListView.builder(
                   physics: const ScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 10,
+                  itemCount: TypesController.listtp.length,
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
                       onTap: () {
                         showAlertDialog(context);
+                        GameController.idtype =
+                            TypesController.listtp[index].id;
                       },
-                      child: const Padding(
+                      child: Padding(
                         padding: EdgeInsets.fromLTRB(60, 10, 60, 10),
                         child: SizedBox(
                           width: 200,
@@ -62,11 +74,13 @@ class _TypeQuestionsState extends State<TypeQuestions> {
                             child: Center(
                               child: ListTile(
                                 leading: CircleAvatar(
-                                    radius: 40,
-                                    backgroundImage: AssetImage(
-                                        'assets/images/monkeylogo.png')),
+                                  radius: 40,
+                                  backgroundImage: NetworkImage(
+                                    '${TypesController.listtp[index].image}',
+                                  ),
+                                ),
                                 title: Text(
-                                  'Thể Thao',
+                                  '${TypesController.listtp[index].type}',
                                   style: TextStyle(
                                       fontSize: 25,
                                       fontWeight: FontWeight.bold),
@@ -77,8 +91,12 @@ class _TypeQuestionsState extends State<TypeQuestions> {
                         ),
                       ),
                     );
-                  }),
-            ),
+                  },
+                );
+              } else {
+                return const CircularProgressIndicator();
+              }
+            }))),
           ],
         ),
       ),
@@ -98,15 +116,13 @@ showAlertDialog(BuildContext context) {
     },
   );
   Widget continueButton = TextButton(
-    child: Text(
+    child: const Text(
       "Chơi",
       style: TextStyle(color: Colors.green),
     ),
     onPressed: () {
-      //Navigator.push(
-      //context, MaterialPageRoute(builder: (context) => Page1()));
-      // Navigator.of(context, rootNavigator: true).pushNamed('/play');
-      Get.to(() => Play());
+      QuestionsController.fetchDataQuestions();
+      Get.to(() => const Play());
     },
   );
 

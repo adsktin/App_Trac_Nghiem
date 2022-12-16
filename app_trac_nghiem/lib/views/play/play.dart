@@ -27,18 +27,6 @@ class _PlayState extends State<Play> {
     'D: Không Quan Tâm'
   ];
 
-  //@override
-  // void initState() {
-  //   super.initState();
-  //   Timer.periodic(const Duration(seconds: 1), (_) {
-  //     if (_count > 0) {
-  //       setState(() {
-  //         _count--;
-  //       });
-  //     }
-  //   });
-  // }
-
   Widget _buildChips() {
     List<Widget> chips = [];
 
