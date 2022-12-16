@@ -7,4 +7,6 @@ class AppUrl {
   static const String news = '$baseUrl/news';
   static const String ranks = '$baseUrl/ranks';
   static const String getUser = '$baseUrl/user';
+  static const String types = '$baseUrl/types';
+  static const String questions = '$baseUrl/questions';
 }
