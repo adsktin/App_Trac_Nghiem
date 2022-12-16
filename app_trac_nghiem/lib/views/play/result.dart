@@ -1,3 +1,4 @@
+import 'package:app_trac_nghiem/controller/questions_controller.dart';
 import 'package:app_trac_nghiem/views/color.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -37,7 +38,7 @@ class _ResultState extends State<Result> {
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
                           'Tổng điểm: ',
                           style: TextStyle(
@@ -45,7 +46,7 @@ class _ResultState extends State<Result> {
                           ),
                         ),
                         Text(
-                          '100',
+                          '${QuestionsController.score}',
                           style: TextStyle(fontSize: 30, color: Colors.red),
                         ),
                       ],

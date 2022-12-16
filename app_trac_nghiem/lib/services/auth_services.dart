@@ -38,7 +38,7 @@ class AuthService {
         }
       }
     } catch (e) {
-      return ["", "Kết nối thất bại!"];
+      return ["", e.toString()];
     }
   }
 
