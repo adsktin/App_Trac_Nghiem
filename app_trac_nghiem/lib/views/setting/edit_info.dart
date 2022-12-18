@@ -3,7 +3,9 @@ import 'package:app_trac_nghiem/models/user_model.dart';
 import 'package:app_trac_nghiem/routes/url.dart';
 // import 'package:app_trac_nghiem/models/user_Model.dart';
 import 'package:app_trac_nghiem/views/color.dart';
+import 'package:app_trac_nghiem/views/home/home.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EditInfo extends StatefulWidget {
@@ -64,17 +66,33 @@ class _EditInfoState extends State<EditInfo> {
                         padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                         child: CircleAvatar(
                           radius: 70,
-                          backgroundImage: NetworkImage(AppUrl.urlimg +
-                              '/storage/accounts/${snapshot.data.id}/avatar/' +
-                              '${snapshot.data.avatar}'),
+                          backgroundImage: NetworkImage(
+                              '${AppUrl.urlimg}/storage/accounts/${snapshot.data.id}/avatar/${snapshot.data.avatar}'),
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(0, 0, 20, 20),
                             child: IconButton(
                               onPressed: () {},
-                              icon: Icon(
-                                Icons.photo_camera_outlined,
+                              icon: IconButton(
+                                icon: Icon(
+                                  Icons.photo_camera_outlined,
+                                  size: 40,
+                                ),
                                 color: const Color(0xFFffffff).withOpacity(0.3),
-                                size: 60,
+                                onPressed: () {
+                                  Get.defaultDialog(
+                                      middleText: 'Chọn hình',
+                                      // actions: [Text('upload ảnh tại đây')],
+                                      buttonColor: Colors.blue,
+                                      cancelTextColor: Colors.red,
+                                      confirmTextColor: Colors.black,
+                                      backgroundColor: Colors.white,
+                                      textCancel: 'Hủy',
+                                      textConfirm: 'Ok',
+                                      onConfirm: () {
+                                        Get.to(() => const EditInfo());
+                                      },
+                                      title: 'Đổi avatar');
+                                },
                               ),
                             ),
                           ),

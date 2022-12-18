@@ -22,7 +22,7 @@ class _PlayState extends State<Play> {
   var start = true;
   var checkSelect = false;
   var selectAnswer = 4;
-
+  List abcd = ['A', 'B', 'C', 'D'];
   //
 
   //static int _count = 10;
@@ -169,7 +169,7 @@ class _PlayState extends State<Play> {
                                   QuestionsController.item + 1;
                               checkSelect = false;
                             } else {
-                              Get.to(() => Result());
+                              Get.to(() => const Result());
                             }
                           }
                         }
@@ -182,7 +182,7 @@ class _PlayState extends State<Play> {
                             QuestionsController.amountQuestion) {
                           _controller.restart();
                         } else {
-                          Get.to(() => Result());
+                          Get.to(() => const Result());
                         }
                         checkSelect = false;
                       });
@@ -206,14 +206,14 @@ class _PlayState extends State<Play> {
                   color: const Color.fromARGB(255, 0, 48, 87),
                   child: Center(
                     child: Padding(
-                      padding: EdgeInsets.all(20),
+                      padding: const EdgeInsets.all(20),
                       child: AutoSizeText(
                         '${QuestionsController.listtp[QuestionsController.item].questcontent}',
                         maxFontSize: 30,
                         minFontSize: 20,
                         textAlign: TextAlign.justify,
                         maxLines: 4,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
@@ -233,11 +233,11 @@ class _PlayState extends State<Play> {
                         color: const Color.fromARGB(255, 90, 80, 177),
                         borderRadius: BorderRadius.circular(20)),
                     child: Padding(
-                      padding: EdgeInsets.all(0),
+                      padding: const EdgeInsets.all(0),
                       child: Center(
                         child: Text(
                           "${QuestionsController.item + 1}/5",
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFFF6FF92),
@@ -255,11 +255,11 @@ class _PlayState extends State<Play> {
                   child: Container(
                     width: 50,
                     child: Padding(
-                      padding: EdgeInsets.all(0),
+                      padding: const EdgeInsets.all(0),
                       child: Center(
                         child: Text(
                           "Điểm: ${QuestionsController.score}",
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFFF6FF92),
@@ -318,11 +318,11 @@ class _PlayState extends State<Play> {
             Expanded(
               child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   itemCount: QuestionsController.listtp[0].answers.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       child: InkWell(
                         onTap: () {
                           QuestionsController.answerQuestion(QuestionsController
@@ -360,7 +360,7 @@ class _PlayState extends State<Play> {
                                   }
                                 } else {
                                   _controller.pause();
-                                  Get.to(() => Result());
+                                  Get.to(() => const Result());
                                 }
                               });
                             }
@@ -368,24 +368,25 @@ class _PlayState extends State<Play> {
                         },
                         child: Container(
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: 
-                                 Color.fromRGBO(123, 120, 237, 1),
+                            borderRadius: BorderRadius.circular(30),
+                            color: const Color.fromARGB(255, 115, 104, 198),
                           ),
                           child: SizedBox(
                             height: 70,
                             child: Padding(
-                                padding: EdgeInsets.fromLTRB(20, 25, 10, 0),
-                                child: AutoSizeText(
-                                    "${index + 1} - ${QuestionsController.listtp[QuestionsController.item].answers[index].answercontent}",
-                                    maxLines: 2,
-                                    maxFontSize: 14,
-                                    minFontSize: 12,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.inter(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.white))),
+                              padding: const EdgeInsets.fromLTRB(30, 25, 10, 5),
+                              child: AutoSizeText(
+                                "${abcd[index]} :  ${QuestionsController.listtp[QuestionsController.item].answers[index].answercontent}",
+                                maxLines: 2,
+                                maxFontSize: 30,
+                                minFontSize: 15,
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.inter(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.yellow[100]),
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -446,7 +447,7 @@ class _PlayState extends State<Play> {
           ],
         );
       } else {
-        return CircularProgressIndicator();
+        return const CircularProgressIndicator();
       }
     })));
   }

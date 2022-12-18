@@ -177,8 +177,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Get.to(() => const Home());
                       Get.defaultDialog(
                           title: "Thông báo!",
-                          middleText: 'Đăng nhập thành công!');   
-                                              
+                          middleText: 'Đăng nhập thành công!');                    
                     }
                   } else {}
                 },

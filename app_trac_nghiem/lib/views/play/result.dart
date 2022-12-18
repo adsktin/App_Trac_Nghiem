@@ -1,6 +1,9 @@
 import 'package:app_trac_nghiem/controller/questions_controller.dart';
 import 'package:app_trac_nghiem/views/color.dart';
+import 'package:app_trac_nghiem/views/home/home.dart';
+import 'package:app_trac_nghiem/views/play/type_questions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 // <-- Import statement
 
@@ -63,8 +66,7 @@ class _ResultState extends State<Result> {
                             borderRadius: BorderRadius.circular(50)),
                         child: IconButton(
                             onPressed: () {
-                              Navigator.of(context, rootNavigator: true)
-                                  .pushNamed('/home');
+                              Get.to(() => Home());
                             },
                             icon: const Icon(
                               Icons.home,
@@ -79,8 +81,7 @@ class _ResultState extends State<Result> {
                             borderRadius: BorderRadius.circular(50)),
                         child: IconButton(
                             onPressed: () {
-                              Navigator.of(context, rootNavigator: true)
-                                  .pushNamed('/type_question');
+                              Get.to(() => TypeQuestions());
                             },
                             icon: const Icon(
                               Icons.play_arrow_outlined,
